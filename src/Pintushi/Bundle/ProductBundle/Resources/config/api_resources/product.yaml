@@ -1,0 +1,40 @@
+Pintushi\Bundle\ProductBundle\Entity\Product:
+    collectionOperations:
+            post:
+               path: /admin/products
+               access_control: is_granted('pintushi_product_create')
+            get:
+               path: /admin/products
+               acl_enabled: true
+               access_control: is_granted('pintushi_product_view')
+               normalization_context:
+                    groups: ["Product", 'Simple', 'ProductCollection']
+            get_inventory:
+               method: 'GET'
+               acl_enabled: true
+               path: "/admin/inventory"
+               access_control: is_granted('pintushi_inventory_view')
+               normalization_context:
+                   groups: ["inventory"]
+            show_products:
+                path: '/shop/products'
+                force_eager: false
+                method: 'GET'
+                normalization_context:
+                    groups: ["Details"]
+    itemOperations:
+            put:
+               path: /admin/products/{id}
+               access_control: is_granted('pintushi_product_edit', object)
+            get:
+               path: /admin/products/{id}
+               access_control: is_granted('pintushi_product_view', object)
+            delete:
+               path: /admin/products/{id}
+               access_control: is_granted('pintushi_product_delete', object)
+    attributes:
+        normalization_context:
+            groups: ["Product", 'Simple']
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]

@@ -1,0 +1,14 @@
+Pintushi\Bundle\CustomerBundle\Entity\Customer:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:  { groups: ['pintushi'], fields: ['phoneNumber']}
+        - Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganization:  { groups: ['pintushi'], 'fields': ['group']}
+    properties:
+        phoneNumber:
+            - Length: { groups: ['create'] , max: 255}
+        plainPassword:
+          - NotBlank: { groups: ['create'] }
+          - Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordStrength:
+                minLength: 6
+                minStrength: 3
+                groups: ['pintushi']
+                message: '至少6个字符，且需包括大小写，特殊字符'

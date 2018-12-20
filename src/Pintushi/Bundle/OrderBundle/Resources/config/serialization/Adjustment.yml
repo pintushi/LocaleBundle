@@ -1,0 +1,10 @@
+Pintushi\Bundle\OrderBundle\Entity\Adjustment:
+    attributes:
+        id:
+            groups: [Default, Detailed, DetailedCart]
+        type:
+            groups: [Default, Detailed, DetailedCart]
+        label:
+            groups: [Default, Detailed, DetailedCart]
+        amount:
+            groups: [Default, Detailed, DetailedCart]

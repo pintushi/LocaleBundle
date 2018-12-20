@@ -1,0 +1,11 @@
+imports:
+    - { resource: validator.yml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Pintushi\Bundle\TaxonomyBundle\:
+        resource: '../../{Repository,DataFixtures,Command}'

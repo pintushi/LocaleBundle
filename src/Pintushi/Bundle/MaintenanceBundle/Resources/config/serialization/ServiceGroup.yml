@@ -1,0 +1,10 @@
+Pintushi\Bundle\MaintenanceBundle\Entity\ServiceGroup:
+    attributes:
+        id:
+            groups: ['read', 'write', 'Details']
+        name:
+            groups: ['read', 'write', 'Details']
+        position:
+            groups: ['read', 'write', 'Details']
+        services:
+            groups: ['Details']

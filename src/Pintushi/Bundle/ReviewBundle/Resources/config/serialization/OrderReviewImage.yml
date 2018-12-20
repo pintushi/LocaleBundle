@@ -1,0 +1,8 @@
+Pintushi\Bundle\ReviewBundle\Entity\OrderReviewImage:
+    attributes:
+        id:
+            groups: ['OrderReview']
+        path:
+            groups: ['OrderReview']
+        mineType:
+            groups: ['OrderReview']

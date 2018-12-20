@@ -1,0 +1,28 @@
+acls:
+    pintushi_payment_gateway_config_create:
+        type: entity
+        class: Pintushi\Bundle\PayumBundle\Entity\GatewayConfig
+        label: '创建付款方式'
+        permission: 'CREATE'
+        category: "payment"
+
+    pintushi_payment_gateway_config_view:
+        type: entity
+        class: Pintushi\Bundle\PayumBundle\Entity\GatewayConfig
+        label: '查看付款方式'
+        permission: 'VIEW'
+        category: "payment"
+
+    pintushi_payment_gateway_config_delete:
+        type: entity
+        class: Pintushi\Bundle\PayumBundle\Entity\GatewayConfig
+        label: '查看付款方式'
+        permission: 'DELETE'
+        category: "payment"
+
+    pintushi_payment_gateway_config_edit:
+        type: entity
+        class: Pintushi\Bundle\PayumBundle\Entity\GatewayConfig
+        label: '编辑付款方式'
+        permission: 'EDIT'
+        category: "payment"

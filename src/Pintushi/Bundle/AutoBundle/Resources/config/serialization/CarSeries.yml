@@ -1,0 +1,14 @@
+Pintushi\Bundle\AutoBundle\Entity\CarSeries:
+    attributes:
+        id:
+            groups: ['write', 'read', 'Details', 'Simple']
+        name:
+            groups: ['write', 'read', , 'Details', 'Simple']
+        brandName:
+            groups: ['Simple']
+        image:
+            groups: ['write', 'read', 'Details', 'Simple']
+        brand:
+            groups: ['write']
+        carModels:
+            groups: ['Details']

@@ -1,0 +1,28 @@
+acls:
+    pintushi_auto_create:
+        type: entity
+        class: Pintushi\Bundle\AutoBundle\Entity\CarBrand
+        label: '创建车型'
+        permission: 'CREATE'
+        category: "car"
+
+    pintushi_auto_view:
+        type: entity
+        class: Pintushi\Bundle\AutoBundle\Entity\CarBrand
+        label: '查看车型'
+        permission: 'VIEW'
+        category: "car"
+
+    pintushi_auto_delete:
+        type: entity
+        class: Pintushi\Bundle\AutoBundle\Entity\CarBrand
+        label: '查看车型'
+        permission: 'DELETE'
+        category: "car"
+
+    pintushi_auto_edit:
+        type: entity
+        class: Pintushi\Bundle\AutoBundle\Entity\CarBrand
+        label: '编辑车型'
+        permission: 'EDIT'
+        category: "car"

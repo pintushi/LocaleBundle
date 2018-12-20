@@ -1,0 +1,6 @@
+acls:
+    pintushi_navigation_manage_menus:
+        description: ""
+        type: action
+        group_name: ""
+        category: "application"

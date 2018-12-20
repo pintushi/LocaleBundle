@@ -1,0 +1,46 @@
+Pintushi\Bundle\AddressBundle\Entity\Address:
+    attributes:
+        id:
+            groups: ['read', 'Details']
+        username:
+            groups: ['read', 'write', 'Details']
+        countryCode:
+            groups: ['read', 'write', 'Details']
+        provinceCode:
+            groups: ['read', 'write', 'Details']
+        province:
+            groups: ['read', 'write', 'Details']
+        cityCode:
+            groups: ['read', 'write', 'Details']
+        city:
+            groups: ['read', 'write', 'Details']
+        regionCode:
+            groups: ['read', 'write', 'Details']
+        region:
+            groups: ['read', 'write', 'Details']
+        street:
+            groups: ['write', 'read', 'Details']
+        phoneNumber:
+            groups: ['write', 'read', 'Details']
+    relations:
+        - rel: self
+          href:
+            route: api_addresses_get_item
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Shop']
+        - rel: edit
+          href:
+            route: api_shop_account_update_address
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Shop']
+        - rel: delete
+          href:
+            route: api_addresses_delete_item
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Shop']

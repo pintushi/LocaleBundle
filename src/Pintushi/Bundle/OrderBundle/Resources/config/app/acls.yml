@@ -1,0 +1,28 @@
+acls:
+    pintushi_order_create:
+        type: entity
+        class: Pintushi\Bundle\OrderBundle\Entity\Order
+        label: '创建工单'
+        permission: 'CREATE'
+        category: "order"
+
+    pintushi_order_view:
+        type: entity
+        class: Pintushi\Bundle\OrderBundle\Entity\Order
+        label: '查看工单'
+        permission: 'VIEW'
+        category: "order"
+
+    pintushi_order_delete:
+        type: entity
+        class: Pintushi\Bundle\OrderBundle\Entity\Order
+        label: '查看工单'
+        permission: 'DELETE'
+        category: "order"
+
+    pintushi_order_edit:
+        type: entity
+        class: Pintushi\Bundle\OrderBundle\Entity\Order
+        label: '编辑工单'
+        permission: 'EDIT'
+        category: "order"

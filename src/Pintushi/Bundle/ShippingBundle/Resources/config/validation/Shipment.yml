@@ -1,0 +1,6 @@
+Pintushi\Bundle\ShippingBundle\Entity\Shipment:
+    properties:
+        state:
+            - NotBlank: { groups: ["pintushi"] }
+        method:
+            - NotBlank: { groups: ["pintushi"] }

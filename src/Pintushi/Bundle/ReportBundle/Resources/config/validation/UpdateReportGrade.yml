@@ -1,0 +1,8 @@
+Pintushi\Bundle\ReportBundle\Request\UpdateReportGrade:
+    properties:
+        id:
+            - NotNull:  { groups: ["pintushi"]}
+        score:
+            - NotBlank: { groups: ["pintushi"]}
+            - Choice:
+                choices:  ["none", "good", "warning", "danger"]

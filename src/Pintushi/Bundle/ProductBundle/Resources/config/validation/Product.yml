@@ -1,0 +1,8 @@
+Pintushi\Bundle\ProductBundle\Entity\Product:
+    constraints:
+        - Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganization:  { groups: ['pintushi'], 'fields': ['autoSeries', 'service']}
+    properties:
+        name:
+            - NotBlank: { groups: ['pintushi'] }
+        image:
+            - NotBlank: { groups: ['pintushi'] }

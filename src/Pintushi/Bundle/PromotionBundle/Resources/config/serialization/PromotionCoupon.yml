@@ -1,0 +1,16 @@
+Pintushi\Bundle\PromotionBundle\Entity\PromotionCoupon:
+    attributes:
+        id:
+            groups: [Default, Detailed]
+        code:
+            groups: [Default, Detailed]
+        used:
+            groups: [Default, Detailed]
+        usageLimit:
+            groups: [Default, Detailed]
+        expiresAt:
+            groups: [Default, Detailed]
+        createdAt:
+            groups: [Detailed]
+        updatedAt:
+            groups: [Detailed]

@@ -1,0 +1,43 @@
+Pintushi\Bundle\ReportBundle\Entity\Report:
+    collectionOperations:
+            get:
+               acl_enabled: true
+               access_control: is_granted('pintushi_report_view')
+    itemOperations:
+            get:
+               access_control: is_granted('pintushi_report_view', object)
+               route_name: 'api_admin_report_view'
+            delete:
+               access_control: is_granted('pintushi_report_delete', object)
+    attributes:
+        normalization_context:
+            groups: ["read"]
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]
+        route_prefix: /admin
+
+Pintushi\Bundle\ReportBundle\Request\CreateReportRequest:
+    collectionOperations:
+        post:
+           access_control: is_granted('pintushi_report_create')
+           path: /reports
+           route_name: 'api_admin_report_create'
+    itemOperations: {}
+    attributes:
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]
+        route_prefix: /admin
+
+Pintushi\Bundle\ReportBundle\Request\UpdateReportRequest:
+    collectionOperations: {}
+    itemOperations:
+        put:
+           access_control: is_granted('pintushi_report_edit', object)
+           route_name: 'api_admin_report_update'
+    attributes:
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]
+        route_prefix: /admin

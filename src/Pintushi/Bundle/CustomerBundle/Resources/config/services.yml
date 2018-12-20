@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    pintushi.customer_provider:
+        class: Pintushi\Bundle\UserBundle\Provider\UsernameProvider
+        arguments:
+            - 'Pintushi\Bundle\CustomerBundle\Entity\Customer'
+            - '@Pintushi\Bundle\CustomerBundle\Repository\CustomerRepository'
+            - '@Pintushi\Bundle\UserBundle\Canonicalizer\Canonicalizer'
+
+    Pintushi\Bundle\CustomerBundle\:
+        resource: '../../{Repository,DataFixtures,Command}'
+
+    Pintushi\Bundle\CustomerBundle\Form\Type\CustomerGroupChoiceType:
+        arguments:
+            - '@Pintushi\Bundle\CustomerBundle\Repository\CustomerGroupRepository'
+        tags:
+            - { name: "form.type"}

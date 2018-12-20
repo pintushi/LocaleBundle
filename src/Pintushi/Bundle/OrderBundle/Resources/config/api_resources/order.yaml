@@ -1,0 +1,34 @@
+Pintushi\Bundle\OrderBundle\Entity\Order:
+    collectionOperations:
+            post:
+                path: '/admin/orders'
+                denormalization_context:
+                   groups: ["write"]
+                access_control: is_granted('pintushi_order_create')
+            get:
+                path: '/admin/orders'
+                access_control: is_granted('pintushi_order_view')
+                force_eager: false
+                normalization_context:
+                    groups: ["Details", "OrderCollection"]
+                    enable_max_depth: true
+    itemOperations:
+            get:
+                path: '/admin/orders/{id}'
+                access_control: is_granted('pintushi_order_view', object)
+                normalization_context:
+                    groups: ["Details", "OrderCollection"]
+                    enable_max_depth: true
+            put:
+                path: '/admin/orders/{id}'
+                access_control: is_granted('pintushi_order_edit', object)
+            delete:
+                path: '/admin/orders/{id}'
+                access_control: is_granted('pintushi_order_delete', object)
+    attributes:
+        normalization_context:
+            groups: ["read"]
+            enable_max_depth: true
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]

@@ -1,0 +1,12 @@
+Pintushi\Bundle\TaxonomyBundle\Entity\Taxon:
+    attributes:
+        id:
+            groups: ['read']
+        name:
+            groups: ['read', 'write']
+        description:
+            groups: ['read', 'write']
+        parent:
+            groups: ['write']
+        organization:
+            groups: ['write']

@@ -1,0 +1,26 @@
+Pintushi\Bundle\PromotionBundle\Entity\PromotionCoupon:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            groups: ["pintushi"]
+            fields: ["code"]
+            message: "pintushi.promotion_coupon.code.unique"
+    properties:
+        code:
+            - NotBlank:
+                groups: ["pintushi"]
+                message: "pintushi.promotion_coupon.code.not_blank"
+            - Length:
+                groups: ["pintushi"]
+                min: 2
+                max: 255
+                minMessage: 'pintushi.promotion_coupon.code.not_blank'
+                maxMessage: 'pintushi.promotion_coupon.code.max_length'
+            - Regex:
+                groups: ["pintushi"]
+                pattern: "/^[\\w-]*$/"
+                message: "pintushi.promotion_coupon.code.regex"
+        usageLimit:
+            - Range:
+                groups: ["pintushi"]
+                min: 1
+                minMessage: "pintushi.promotion_coupon.usage_limit.min"

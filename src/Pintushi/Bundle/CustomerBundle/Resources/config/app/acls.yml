@@ -1,0 +1,56 @@
+acls:
+    pintushi_customer_create:
+        type: entity
+        class: Pintushi\Bundle\CustomerBundle\Entity\Customer
+        label: '创建客户'
+        permission: 'CREATE'
+        category: "customer"
+
+    pintushi_customer_view:
+        type: entity
+        class: Pintushi\Bundle\CustomerBundle\Entity\Customer
+        label: '查看客户'
+        permission: 'VIEW'
+        category: "customer"
+
+    pintushi_customer_delete:
+        type: entity
+        class: Pintushi\Bundle\CustomerBundle\Entity\Customer
+        label: '查看客户'
+        permission: 'DELETE'
+        category: "customer"
+
+    pintushi_customer_edit:
+        type: entity
+        class: Pintushi\Bundle\CustomerBundle\Entity\Customer
+        label: '编辑客户'
+        permission: 'EDIT'
+        category: "customer"
+
+    pintushi_customer_group_create:
+        type: entity
+        class: Pintushi\Bundle\CustomerBundle\Entity\CustomerGroup
+        label: '创建客户分组'
+        permission: 'CREATE'
+        category: "customer"
+
+    pintushi_customer_group_view:
+        type: entity
+        class: Pintushi\Bundle\CustomerBundle\Entity\CustomerGroup
+        label: '查看客户分组'
+        permission: 'VIEW'
+        category: "customer"
+
+    pintushi_customer_group_delete:
+        type: entity
+        class: Pintushi\Bundle\CustomerBundle\Entity\CustomerGroup
+        label: '查看客户分组'
+        permission: 'DELETE'
+        category: "customer"
+
+    pintushi_customer_group_edit:
+        type: entity
+        class: Pintushi\Bundle\CustomerBundle\Entity\CusCustomerGrouptomer
+        label: '编辑客户分组'
+        permission: 'EDIT'
+        category: "customer"

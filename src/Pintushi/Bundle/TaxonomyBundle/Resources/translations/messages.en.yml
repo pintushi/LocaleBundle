@@ -1,0 +1,8 @@
+pintushi:
+    form:
+        taxon:
+            description: Description
+            name: Name
+            parent: Parent
+        taxonomy:
+            name: Name

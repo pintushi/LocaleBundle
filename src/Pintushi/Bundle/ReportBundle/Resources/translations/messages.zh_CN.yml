@@ -1,0 +1,34 @@
+pintushi_report:
+    group:
+        create: 添加分组
+        create_item: 添加子项
+        delete: 删除
+        edit: 编辑
+        save: 保存
+        group_name: 分组
+        weight: 权重
+        weight_help: 值越小，越靠前
+        description: 描述
+    item:
+        item_name: 报告项名称
+        weight: 权重
+        enabled: 启用
+    report:
+        index_header: 配置保养报告项
+        review: 备注
+        setting_report: 设置保养报告
+        show_report: 查看保养报告
+        edit: 编辑
+    breadcrumb:
+        report:
+            index: 保养报告
+    grade:
+        good: 良好
+        warning: 短期内需关注
+        danger: 需立即关注
+        none: 未设置
+
+
+
+
+

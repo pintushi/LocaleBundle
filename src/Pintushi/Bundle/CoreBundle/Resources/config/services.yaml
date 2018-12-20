@@ -1,0 +1,75 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Pintushi\Bundle\CoreBundle\:
+        resource: '../../{Repository,DataFixtures,Controller,Command}'
+
+    pintushi.ownership_propery_helper:
+        class: Pintushi\Bundle\CoreBundle\Metadata\OwnershipPropertyHelper
+        arguments:
+            - '@Pintushi\Bundle\SecurityBundle\ORM\DoctrineHelper'
+            - '@pintushi_security.owner.ownership_metadata_provider'
+            - '@pintushi_security.token_accessor'
+
+    Pintushi\Bundle\CoreBundle\DataPersister\DataPersister:
+        class: Pintushi\Bundle\CoreBundle\DataPersister\DataPersister
+        autoconfigure: false
+        arguments:
+            - '@doctrine'
+            - '@pintushi_organization.owner_deletion_manager'
+        tags:
+            - { name: api_platform.data_persister, priority: 30 }
+
+    pintushi.expression_language.workflow_provider:
+        class: Pintushi\Bundle\CoreBundle\ExpressionLanguage\WorkflowExpressionLanguageProvider
+        arguments:
+            ['@workflow.registry']
+
+    pintushi.jwt_authentication.handler.authentication_success:
+        class: Pintushi\Bundle\CoreBundle\Security\Http\Authentication\AuthenticationSuccessHandler
+        arguments:
+            - '@lexik_jwt_authentication.jwt_manager'
+            - '@event_dispatcher'
+        tags:
+            - {  name: "monolog.logger", channel: "security" }
+
+    Pintushi\Bundle\CoreBundle\Serializer\GrantedInfoAccessor:
+        class:  Pintushi\Bundle\CoreBundle\Serializer\GrantedInfoAccessor
+        arguments:
+            - '@pintushi.acl.voter.basic_permissions'
+            - '@pintushi_security.authorization_checker'
+            - '@pintushi_security.token_accessor'
+
+    Pintushi\Bundle\CoreBundle\Validator\ValidationHelper:
+        class: Pintushi\Bundle\CoreBundle\Validator\ValidationHelper
+        public: false
+        arguments:
+            - '@validator.mapping.class_metadata_factory'
+
+    pintushi.validator:
+        class: Pintushi\Bundle\CoreBundle\Validator\EventListener\ValidateListener
+        decorates: api_platform.listener.view.validate
+        arguments:
+            - '@api_platform.validator'
+            - '@validator'
+            - '@api_platform.metadata.resource.metadata_factory'
+            - '@pintushi_security.owner.ownership_metadata_provider'
+            - '@Pintushi\Bundle\CoreBundle\Validator\ValidationHelper'
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.view', method: 'onKernelView', priority: '64'}
+
+    Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganizationValidator:
+        arguments:
+           - '@pintushi_security.owner.ownership_metadata_provider'
+           - '@security.authorization_checker'
+        tags:
+            - { name: validator.constraint_validator}
+
+    Pintushi\Bundle\CoreBundle\Serializer\EmptyDateTimeDenormalizer:
+        arguments:
+            - '@api_platform.serializer.normalizer.item'
+        tags:
+            - { name: 'serializer.normalizer', priority: 32}

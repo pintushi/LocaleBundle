@@ -1,0 +1,31 @@
+Pintushi\Bundle\ReviewBundle\Entity\OrderReview:
+    collectionOperations:
+            # post:
+            #     access_control: is_granted('pintushi_order_review_create')
+            #     route_name: "api_admin_order_review_create"
+            get:
+                path: '/admin/order_reviews'
+                access_control: is_granted('pintushi_order_review_view')
+            show_shop_reviews:
+                method: 'GET'
+                force_eager: false
+                path: '/shop/reviews'
+                normalization_context:
+                    groups: ["OrderReview"]
+    itemOperations:
+            get:
+                path: '/admin/order_reviews/{id}'
+                access_control: is_granted('pintushi_order_review_view')
+            put:
+                path: '/admin/order_reviews/{id}'
+                access_control: is_granted('pintushi_order_review_edit')
+                route_name: 'api_admin_order_review_update'
+            delete:
+                path: '/admin/order_reviews/{id}'
+                access_control: is_granted('pintushi_order_review_delete')
+    attributes:
+        normalization_context:
+            groups: ["OrderReview"]
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]

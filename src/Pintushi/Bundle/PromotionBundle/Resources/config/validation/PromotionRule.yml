@@ -1,0 +1,4 @@
+Pintushi\Bundle\PromotionBundle\Entity\PromotionRule:
+    properties:
+        configuration:
+            - Valid: { groups: ["pintushi"]}

@@ -1,0 +1,10 @@
+Pintushi\Bundle\PayumBundle\Entity\GatewayConfig:
+    attributes:
+        id:
+            groups: ['read']
+        factoryName:
+            groups: ['read', 'write']
+        gatewayName:
+            groups: ['read', 'write']
+        config:
+            groups: ['read', 'write']

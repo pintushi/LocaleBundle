@@ -1,0 +1,6 @@
+Pintushi\Bundle\BlockBundle\Entity\Block:
+    properties:
+      label:
+            - NotBlank: { groups: ['pintushi'] }
+      image:
+            - NotBlank: { groups: ['pintushi'] }

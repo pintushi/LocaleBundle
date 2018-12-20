@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Pintushi\Bundle\CustomerBundle\Entity\Customer" table="pintushi_customer">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <unique-constraints>
+            <unique-constraint columns="phone_number,organization_id" />
+            <unique-constraint columns="username,organization_id" />
+        </unique-constraints>
+        <field name="username" column="username" type="string" nullable="true" />
+        <field name="usernameCanonical" column="username_canonical" type="string" nullable="true" />
+        <field name="enabled" column="enabled" type="boolean" nullable="false" />
+        <field name="avatar" column="avatar" type="string" nullable="true" length="255" />
+        <field name="salt" column="salt" type="string" nullable="true" />
+        <field name="password" column="password" type="string" nullable="false" />
+        <field name="lastLogin" column="last_login" type="datetime" nullable="true" />
+         <field name="passwordResetToken" column="password_reset_token" type="string" nullable="true" />
+        <field name="passwordRequestedAt" column="password_requested_at" type="datetime" nullable="true" />
+        <field name="emailVerificationToken" column="email_verification_token" type="string" nullable="true" />
+        <field name="expiresAt" column="expires_at" type="datetime" nullable="true" />
+        <field name="firstName" column="first_name" type="string" nullable="true" />
+        <field name="lastName" column="last_name" type="string" nullable="true" />
+        <field name="birthday" column="birthday" type="datetime" nullable="true" />
+        <field name="gender" column="gender" type="string"/>
+        <field name="phoneNumber" column="phone_number" type="string" nullable="false" />
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+        <many-to-one field="group" target-entity="Pintushi\Bundle\CustomerBundle\Entity\CustomerGroup">
+            <join-column name="customer_group_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+        <many-to-one field="organization" target-entity="Pintushi\Bundle\OrganizationBundle\Entity\Organization" >
+            <join-column name="organization_id" referenced-column-name="id" nullable="false"/>
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-one>
+        <one-to-many field="addresses" target-entity="Pintushi\Bundle\AddressBundle\Entity\Address" mapped-by="customer">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+        <one-to-one field="defaultAddress" target-entity="Pintushi\Bundle\AddressBundle\Entity\Address">
+            <join-column name="default_address_id" on-delete="SET NULL" nullable="true" />
+            <cascade>
+                <cascade-persist />
+            </cascade>
+        </one-to-one>
+        <one-to-one field="defaultAuto" target-entity="Pintushi\Bundle\AutoBundle\Entity\CarModel">
+            <join-column name="auto_id" on-delete="SET NULL" nullable="true" />
+            <cascade>
+                <cascade-persist />
+            </cascade>
+        </one-to-one>
+        <one-to-many field="orders" target-entity="Pintushi\Bundle\OrderBundle\Entity\Order" mapped-by="customer">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+
+        <many-to-many target-entity="Pintushi\Bundle\AutoBundle\Entity\CarModel" inversed-by="customer" field="autos">
+            <join-table name="pintushi_customer__auto">
+                <join-columns>
+                    <join-column name="customer_id" referenced-column-name="id"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="auto_id" referenced-column-name="id"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+    </entity>
+</doctrine-mapping>

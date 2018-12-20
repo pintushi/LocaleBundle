@@ -1,0 +1,22 @@
+services:
+    pintushi.form.extension.type.gateway_config.crypted:
+        arguments:
+            - '@?payum.dynamic_gateways.cypher'
+        class: Pintushi\Bundle\PayumBundle\Form\Extension\CryptedGatewayConfigTypeExtension
+        tags:
+        - { extended_type: Pintushi\Bundle\PayumBundle\Form\Type\GatewayConfigType, name: form.type_extension}
+
+    pintushi.form.type.gateway_config:
+        arguments:
+            - 'Pintushi\Bundle\PayumBundle\Entity\GatewayConfig'
+            - ['pintushi']
+            - '@pintushi.form_registry.payum_gateway_config'
+        class: Pintushi\Bundle\PayumBundle\Form\Type\GatewayConfigType
+        tags:
+        - { name: form.type}
+
+    pintushi.form.type.gateway_configuration.wechat_pay:
+        class: Pintushi\Bundle\PayumBundle\Form\Type\WechatPayGatewayConfigurationType
+        tags:
+            - { label: pintushi.payum_gateway_factory.wechat_pay, name: pintushi.gateway_configuration_type, type: wechat_pay}
+            - { name: form.type}

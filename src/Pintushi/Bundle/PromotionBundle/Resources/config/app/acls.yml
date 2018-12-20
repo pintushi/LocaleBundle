@@ -1,0 +1,28 @@
+acls:
+    pintushi_promotion_create:
+        type: entity
+        class: Pintushi\Bundle\PromotionBundle\Entity\Promotion
+        label: '创建促销'
+        permission: 'CREATE'
+        category: "promotion"
+
+    pintushi_promotion_view:
+        type: entity
+        class: Pintushi\Bundle\PromotionBundle\Entity\Promotion
+        label: '查看促销'
+        permission: 'VIEW'
+        category: "promotion"
+
+    pintushi_promotion_delete:
+        type: entity
+        class: Pintushi\Bundle\PromotionBundle\Entity\Promotion
+        label: '查看促销'
+        permission: 'DELETE'
+        category: "promotion"
+
+    pintushi_promotion_edit:
+        type: entity
+        class: Pintushi\Bundle\PromotionBundle\Entity\Promotion
+        label: '编辑促销'
+        permission: 'EDIT'
+        category: "promotion"

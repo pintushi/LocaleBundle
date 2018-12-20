@@ -1,0 +1,31 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Pintushi\Bundle\OrderBundle\OrderProcessing\OrderAdjustmentsClearer:
+        tags:
+            - { name: pintushi.order_processor, priority: 60 }
+
+    Pintushi\Bundle\OrderBundle\OrderProcessing\OrderShipmentProcessor:
+        tags:
+            - { name: pintushi.order_processor, priority: 50 }
+
+    Pintushi\Bundle\OrderBundle\OrderProcessing\ShippingChargesProcessor:
+        tags:
+            - { name: pintushi.order_processor, priority: 30 }
+
+    Pintushi\Bundle\OrderBundle\OrderProcessing\OrderPromotionProcessor:
+        tags:
+            - { name: pintushi.order_processor, priority: 20 }
+        arguments: ['@pintushi.promotion_processor']
+
+    Pintushi\Bundle\OrderBundle\OrderProcessing\OrderPaymentProcessor:
+        tags:
+            - { name: pintushi.order_processor, priority: 0 }
+
+    Pintushi\Bundle\OrderBundle\OrderProcessing\OrderPricesRecalculator:
+        class: Pintushi\Bundle\OrderBundle\OrderProcessing\OrderPricesRecalculator
+        tags:
+            - { name: pintushi.order_processor, priority: 40 }

@@ -1,0 +1,78 @@
+imports:
+    - { resource: 'forms.yml'}
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Pintushi\Bundle\SmsBundle\EventListener\VerificationCodeListener: ~
+
+    Pintushi\Bundle\SmsBundle\:
+        resource: '../../{Repository,DataFixtures,Command}'
+
+    Pintushi\Bundle\SmsBundle\Controller\GatewayConfigController:
+        tags: ['controller.service_arguments']
+
+    pintushi.phone_number_verification.cache:
+        public: false
+        autowire: false
+        autoconfigure: false
+        parent: doctrine_cache.abstract.chain
+        calls:
+            - [ setNamespace, [ 'pintushi_phone_number_verification' ]]
+
+    Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaSenderFactory:
+        arguments:
+            - '@pintushi.phone_number_verification.cache'
+
+    pintushi.global.phone_number_verification:
+        class: Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaSender
+        factory: Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaSenderFactory:create
+        arguments:
+            - "@=service('pintushi.sms_factory').create()"
+        calls:
+            - [ setMessageTemplateBuilder, ['@Pintushi\Bundle\SmsBundle\Builder\MessageTemplateGatewayConfigBuilder'] ]
+
+    Pintushi\Bundle\SmsBundle\Builder\MessageTemplateGatewayConfigBuilder:
+        arguments:
+            - '@Pintushi\Bundle\SmsBundle\Repository\GatewayConfigRepository'
+            - 'verification_code'
+
+    Pintushi\Bundle\SmsBundle\Builder\MessageTemplateConfigurationBuilder:
+        arguments:
+            - '%pintushi.sms_templates%'
+            - 'verification_code'
+
+    pintushi.system.phone_number_verification:
+        class: Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaSender
+        factory: Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaSenderFactory:create
+        arguments:
+            - "@pintushi.sms"
+        calls:
+            - [ setMessageTemplateBuilder, ['@Pintushi\Bundle\SmsBundle\Builder\MessageTemplateConfigurationBuilder'] ]
+
+    Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaValidator:
+        arguments: ['@pintushi.phone_number_verification.cache']
+
+    pintushi_sms.security.authentication.provider:
+        class: Pintushi\Bundle\SmsBundle\Security\Core\Authentication\Provider\SmsAuthProvider
+
+    pintushi_sms.security.authentication.listener:
+        class: Pintushi\Bundle\SmsBundle\Security\Firewall\SmsAuthListener
+
+    pintushi.sms_factory:
+        class: Pintushi\Bundle\SmsBundle\Factory\SmsFactory
+
+    pintushi.system.action.verification_code_send:
+        class: Pintushi\Bundle\SmsBundle\Controller\SendVerificationCodeAction
+        arguments:
+            - '@pintushi.system.phone_number_verification'
+
+    pintushi.global.action.verification_code_send:
+        class: Pintushi\Bundle\SmsBundle\Controller\SendVerificationCodeAction
+        arguments:
+            - '@pintushi.global.phone_number_verification'
+
+

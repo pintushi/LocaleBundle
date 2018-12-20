@@ -1,0 +1,7 @@
+Pintushi\Bundle\ReportBundle\Entity\ReportConfigGroup:
+    properties:
+        name:
+            - NotBlank: { groups: ['pintushi']}
+            - Length: { groups: ['pintushi'], max: 40}
+        items:
+            - Valid: ~

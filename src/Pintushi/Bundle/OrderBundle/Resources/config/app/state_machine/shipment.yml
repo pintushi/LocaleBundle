@@ -1,0 +1,27 @@
+winzou_state_machine:
+    pintushi_shipment:
+        class: 'Pintushi\Bundle\ShippingBundle\Entity\Shipment'
+        property_path: state
+        graph: pintushi_shipment
+        state_machine_class: 'Pintushi\Bundle\OrderBundle\StateMachine\StateMachine'
+        states:
+            cart: ~
+            ready: ~
+            shipped: ~
+            cancelled: ~
+        transitions:
+            create:
+                from: [cart]
+                to: ready
+            ship:
+                from: [ready]
+                to: shipped
+            cancel:
+                from: [ready]
+                to: cancelled
+        callbacks:
+            after:
+                pintushi_resolve_state:
+                    on: ['ship']
+                    do: ['@Pintushi\Bundle\OrderBundle\StateResolver\OrderShippingStateResolver', 'resolve']
+                    args: ['object.getOrder()']

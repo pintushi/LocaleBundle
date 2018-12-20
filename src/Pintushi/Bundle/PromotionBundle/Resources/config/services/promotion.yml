@@ -1,0 +1,85 @@
+services:
+    Pintushi\Component\Core\Factory\PromotionActionFactory: ~
+    Pintushi\Component\Core\Factory\PromotionRuleFactory: ~
+
+    pintushi.promotion_rule_checker.customer_group:
+        class: Pintushi\Bundle\PromotionBundle\Checker\Rule\CustomerGroupRuleChecker
+        tags:
+            -
+                name: 'pintushi.promotion_rule_checker'
+                type: 'customer_group'
+                label: 'Customer group'
+                form_type: 'Pintushi\Bundle\PromotionBundle\Form\Type\Rule\CustomerGroupConfigurationType'
+
+    pintushi.promotion_rule_checker.nth_order:
+        class: Pintushi\Bundle\PromotionBundle\Checker\Rule\NthOrderRuleChecker
+        arguments:
+            - '@Pintushi\Bundle\OrderBundle\Repository\OrderRepository'
+        tags:
+            -
+                name: 'pintushi.promotion_rule_checker'
+                type: 'nth_order'
+                label: 'Nth order'
+                form_type: 'Pintushi\Bundle\PromotionBundle\Form\Type\Rule\NthOrderConfigurationType'
+
+    pintushi.promotion_rule_checker.item_total:
+        class: Pintushi\Bundle\PromotionBundle\Checker\Rule\ItemTotalRuleChecker
+        tags:
+            -
+                name: 'pintushi.promotion_rule_checker'
+                type: 'item_total'
+                label: 'Customer group'
+                form_type: 'Pintushi\Bundle\PromotionBundle\Form\Type\Rule\ItemTotalConfigurationType'
+
+    pintushi.promotion_action.percentage_discount:
+        class: Pintushi\Bundle\PromotionBundle\Action\PercentageDiscountPromotionActionCommand
+        arguments:
+            - '@pintushi.proportional_integer_distributor'
+            - '@pintushi.promotion.order_items_promotion_adjustments_applicator'
+        tags:
+            -
+                name: 'pintushi.promotion_action'
+                type: 'order_percentage_discount'
+                label: 'Order percentage discount'
+                form_type: 'Pintushi\Bundle\PromotionBundle\Form\Type\Action\PercentageDiscountConfigurationType'
+
+    pintushi.promotion_action.shipping_percentage_discount:
+        class: Pintushi\Bundle\PromotionBundle\Action\ShippingPercentageDiscountPromotionActionCommand
+        arguments:
+            - '@Pintushi\Bundle\OrderBundle\Factory\AdjustmentFactory'
+        tags:
+            -
+                name: 'pintushi.promotion_action'
+                type: 'shipping_percentage_discount'
+                label: 'Shipping percentage discount'
+                form_type: 'Pintushi\Bundle\PromotionBundle\Form\Type\Action\PercentageDiscountConfigurationType'
+
+    pintushi.promotion_action.fixed_discount:
+        class: Pintushi\Bundle\PromotionBundle\Action\FixedDiscountPromotionActionCommand
+        arguments:
+            - '@pintushi.proportional_integer_distributor'
+            - '@pintushi.promotion.order_items_promotion_adjustments_applicator'
+        tags:
+            -
+                name: 'pintushi.promotion_action'
+                type: 'order_fixed_discount'
+                label: 'pintushi.form.promotion_action.order_fixed_discount'
+                form_type: 'Pintushi\Bundle\PromotionBundle\Form\Type\Action\FixedDiscountConfigurationType'
+
+    pintushi.promotion.eligibility_checker.promotion_coupon_per_customer_usage_limit:
+        class:  Pintushi\Bundle\PromotionBundle\Checker\Eligibility\PromotionCouponPerCustomerUsageLimitEligibilityChecker
+        arguments:
+            - '@Pintushi\Bundle\OrderBundle\Repository\OrderRepository'
+        tags:
+            - { name: 'pintushi.promotion_coupon_eligibility_checker'}
+
+    pintushi.promotion.order_items_promotion_adjustments_applicator:
+        class:  Pintushi\Bundle\PromotionBundle\Applicator\OrderItemsPromotionAdjustmentsApplicator
+        arguments:
+            - '@Pintushi\Bundle\OrderBundle\Factory\AdjustmentFactory'
+            - '@pintushi.integer_distributor'
+
+    pintushi.promotion_usage_modifier:
+        class: Pintushi\Bundle\PromotionBundle\Modifier
+        arguments:
+            - '@doctrine.orm.entity_manager'

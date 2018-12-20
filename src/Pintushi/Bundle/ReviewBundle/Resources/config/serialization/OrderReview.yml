@@ -1,0 +1,14 @@
+Pintushi\Bundle\ReviewBundle\Entity\OrderReview:
+    attributes:
+        id:
+            groups: ['OrderReview']
+        rating:
+            groups: ['OrderReview']
+        comment:
+            groups: ['OrderReview']
+        name:
+            groups: ['OrderReview']
+        author:
+            groups: ["OrderReview"]
+        images:
+            groups: ['OrderReview']

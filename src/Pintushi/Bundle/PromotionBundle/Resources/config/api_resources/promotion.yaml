@@ -1,0 +1,26 @@
+Pintushi\Bundle\PromotionBundle\Entity\Promotion:
+    collectionOperations:
+            post:
+                access_control: is_granted('pintushi_promotion_create')
+                route_name: "api_admin_promotion_create"
+            get:
+                access_control: is_granted('pintushi_promotion_view')
+            generate_coupon:
+                method: "POST"
+                access_control: is_granted('pintushi_promotion_edit')
+                route_name: "api_admin_promotion_coupone_generate"
+    itemOperations:
+            get:
+                access_control: is_granted('pintushi_promotion_view')
+            put:
+                access_control: is_granted('pintushi_promotion_edit')
+                route_name: 'api_admin_promotion_update'
+            delete:
+                access_control: is_granted('pintushi_promotion_delete')
+    attributes:
+        normalization_context:
+            groups: ["Detailed"]
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]
+        route_prefix: /admin

@@ -1,0 +1,10 @@
+Pintushi\Bundle\ShippingBundle\Entity\Shipment:
+    attributes:
+        id:
+            groups: ['Default', 'Details']
+        state:
+            groups: ['Default', 'Details']
+        method:
+            groups: ['Default', 'Details']
+        tracking:
+            groups: ['Default']

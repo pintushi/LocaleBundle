@@ -1,0 +1,10 @@
+Pintushi\Bundle\ReportBundle\Entity\ReportConfigGroup:
+    attributes:
+        id:
+            groups: ['read']
+        name:
+            groups: ['read', 'write']
+        priority:
+            groups: ['read', 'write']
+        organization:
+            groups: ['write']

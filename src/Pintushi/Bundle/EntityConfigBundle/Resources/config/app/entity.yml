@@ -1,0 +1,5 @@
+pintushi_entity:
+    entity_alias_exclusions:
+        - Pintushi\Bundle\EntityConfigBundle\Entity\ConfigModelIndexValue
+        - Pintushi\Bundle\EntityConfigBundle\Entity\EntityConfigModel
+        - Pintushi\Bundle\EntityConfigBundle\Entity\FieldConfigModel

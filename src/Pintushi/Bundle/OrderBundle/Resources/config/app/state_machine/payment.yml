@@ -1,0 +1,39 @@
+winzou_state_machine:
+    pintushi_payment:
+        class: 'Pintushi\Bundle\PaymentBundle\Entity\Payment'
+        property_path: state
+        graph: pintushi_payment
+        state_machine_class: 'Pintushi\Bundle\OrderBundle\StateMachine\StateMachine'
+        states:
+            cart: ~
+            new: ~
+            processing: ~
+            completed: ~
+            failed: ~
+            cancelled: ~
+            refunded: ~
+        transitions:
+            create:
+                from: [cart]
+                to: new
+            process:
+                from: [new]
+                to: processing
+            complete:
+                from: [new, processing]
+                to: completed
+            fail:
+                from: [new, processing]
+                to: failed
+            cancel:
+                from: [new, processing]
+                to: cancelled
+            refund:
+                from: [completed]
+                to: refunded
+        callbacks:
+            after:
+                pintushi_resolve_state:
+                    on: ['complete', 'refund']
+                    do: ['@Pintushi\Bundle\OrderBundle\StateResolver\OrderPaymentStateResolver', 'resolve']
+                    args: ['object.getOrder()']

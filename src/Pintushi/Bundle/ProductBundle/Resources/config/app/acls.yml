@@ -1,0 +1,34 @@
+acls:
+    pintushi_product_create:
+        type: entity
+        class: Pintushi\Bundle\ProductBundle\Entity\Product
+        label: '创建商品'
+        permission: 'CREATE'
+        category: "product"
+
+    pintushi_product_view:
+        type: entity
+        class: Pintushi\Bundle\ProductBundle\Entity\Product
+        label: '查看商品'
+        permission: 'VIEW'
+        category: "product"
+
+    pintushi_product_delete:
+        type: entity
+        class: Pintushi\Bundle\ProductBundle\Entity\Product
+        label: '查看商品'
+        permission: 'DELETE'
+        category: "product"
+
+    pintushi_product_edit:
+        type: entity
+        class: Pintushi\Bundle\ProductBundle\Entity\Product
+        label: '编辑商品'
+        permission: 'EDIT'
+        category: "product"
+
+    pintushi_inventory_view:
+        type: "action"
+        label: "浏览库存"
+        category: "product"
+

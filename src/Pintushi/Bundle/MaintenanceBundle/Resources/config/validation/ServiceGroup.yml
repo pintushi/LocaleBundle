@@ -1,0 +1,5 @@
+Pintushi\Bundle\MaintenanceBundle\Entity\ServiceGroup:
+    properties:
+        name:
+            - NotBlank: { groups: ['pintushi'] }
+            - Length: { groups: ['pintushi'] , max: 40}

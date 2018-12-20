@@ -1,0 +1,5 @@
+services:
+    pintushi.factory.payum_get_status_action:
+        class: Pintushi\Bundle\PayumBundle\Factory\GetStatusFactory
+    pintushi.factory.payum_resolve_next_route:
+        class: Pintushi\Bundle\PayumBundle\Factory\ResolveNextRouteFactory

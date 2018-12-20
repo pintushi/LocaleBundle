@@ -1,0 +1,8 @@
+Pintushi\Bundle\ReportBundle\Request\CreateReportRequest:
+    attributes:
+        review:
+            groups: ['write']
+        orderId:
+            groups: ['write']
+        grades:
+            groups: ['write']

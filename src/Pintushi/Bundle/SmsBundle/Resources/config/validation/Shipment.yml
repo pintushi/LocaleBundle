@@ -1,0 +1,8 @@
+Pintushi\Bundle\SmsBundle\Entity\GatewayConfig:
+    properties:
+        gateway:
+            - NotBlank: { groups: ["pintushi"] }
+        configuration:
+            - NotBlank: { groups: ["pintushi"] }
+        templates:
+            - NotBlank: { groups: ["pintushi"] }

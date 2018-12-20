@@ -1,0 +1,10 @@
+Pintushi\Bundle\BlockBundle\Entity\Block:
+    attributes:
+        id:
+            groups: ['write', 'read', 'Details']
+        label:
+            groups: ['write', 'read', 'Details']
+        image:
+            groups: ['write', 'read', 'Details']
+        linkUrl:
+            groups: ['write', 'read', 'Details']

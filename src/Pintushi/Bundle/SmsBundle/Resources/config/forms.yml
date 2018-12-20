@@ -1,0 +1,32 @@
+services:
+    pintushi.form_registry.sms_gateway_configuration:
+        class: Pintushi\Bundle\CoreBundle\Form\Registry\FormTypeRegistry
+
+    Pintushi\Bundle\SmsBundle\Form\Type\GatewayConfigType:
+        arguments:
+            - 'Pintushi\Bundle\SmsBundle\Entity\GatewayConfig'
+            - ['pintushi']
+            - '@pintushi.form_registry.sms_gateway'
+        tags:
+            - { name: "form.type" }
+
+    Pintushi\Bundle\SmsBundle\Form\Type\SmsGatewayChoiceType:
+        arguments:
+          - '%pintushi.sms_gateways%'
+        tags:
+            - { name: "form.type" }
+
+    Pintushi\Bundle\SmsBundle\Form\Type\SmsTemplateType:
+        tags:
+            - { name: "form.type" }
+
+    Pintushi\Bundle\SmsBundle\Form\Type\Configuration\AliyunGatewayConfigurationType:
+        tags:
+            - {gateway: aliyun, label: "阿里云", name: pintushi.sms_gateway}
+
+    Pintushi\Bundle\SmsBundle\Form\Type\Configuration\RongCloudGatewayConfigurationType:
+        tags:
+            - { gateway: rongcloud, label: "融云", name: pintushi.sms_gateway}
+
+    pintushi.form_registry.sms_gateway:
+        class: Pintushi\Bundle\CoreBundle\Form\Registry\FormTypeRegistry

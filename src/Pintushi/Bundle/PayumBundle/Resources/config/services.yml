@@ -1,0 +1,23 @@
+imports:
+    - { resource: 'services/action.yml'}
+    - { resource: 'services/controller.yml'}
+    - { resource: 'services/extension.yml'}
+    - { resource: 'services/factory.yml'}
+    - { resource: 'services/form.yml'}
+    - { resource: 'services/provider.yml'}
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Pintushi\Bundle\PayumBundle\:
+        resource: '../../{Repository,DataFixtures,Command}'
+
+    pintushi.form_registry.payum_gateway_config:
+        class: Pintushi\Bundle\CoreBundle\Form\Registry\FormTypeRegistry
+
+    Payum\Core\Payum: '@payum'
+
+    Payum\Core\PayumBuilder: "@payum.builder"

@@ -1,0 +1,25 @@
+{
+    "name": "pintushi/sms-bundle",
+    "type": "symfony-bundle",
+    "description": "SMS Bundler for Sylius",
+    "keywords": ["sms"],
+    "homepage": "http://videni.cn",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vidy Videni",
+            "email": "videni@foxmail.com"
+        }
+    ],
+    "require": {
+        "overtrue/easy-sms": "^1.1"
+    },
+    "autoload": {
+        "psr-4": { "Pintushi\\Bundle\\SmsBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

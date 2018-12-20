@@ -1,0 +1,11 @@
+Pintushi\Bundle\MaintenanceBundle\Entity\Service:
+    constraints:
+        - Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganization:  { groups: ['pintushi'], 'fields': ['group']}
+    properties:
+        name:
+            - NotBlank: { groups: ['pintushi'] }
+            - Length: { groups: ['pintushi'] , max: 40}
+        group:
+            - NotNull: { groups: ['pintushi'] }
+        price:
+            - NotBlank: { groups: ['pintushi'] }

@@ -1,0 +1,10 @@
+Pintushi\Bundle\ReviewBundle\Entity\OrderReview:
+    properties:
+        comment:
+            - NotBlank:  { groups: ["pintushi"]}
+        rating:
+            - NotBlank: { groups: ["pintushi"]}
+        images:
+            - Valid: { groups: ["pintushi"]}
+        author:
+            - NotBlank: { groups: ["pintushi"]}

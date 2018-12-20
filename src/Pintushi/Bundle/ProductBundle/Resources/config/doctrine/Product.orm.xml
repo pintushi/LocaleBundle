@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+
+    <entity name="Pintushi\Bundle\ProductBundle\Entity\Product" table="pintushi_product">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="version" type="integer" version="true" />
+        <field name="name" column="name" type="string" nullable="true" />
+        <field name="price" column="price" type="integer" nullable="true" />
+        <field name="image" column="image" type="string" nullable="true" />
+        <field name="description" column="description" type="string" nullable="true" />
+        <field name="onHand" column="on_hand" type="integer" />
+        <field name="onHold" column="on_hold" type="integer" />
+        <field name="tracked" type="boolean" />
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
+        <field name="enabled" column="enabled" type="boolean" />
+
+        <many-to-one field="organization" target-entity="Pintushi\Bundle\OrganizationBundle\Entity\Organization" >
+            <join-column name="organization_id" referenced-column-name="id" nullable="false"/>
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-one>
+        <many-to-one target-entity="Pintushi\Bundle\MaintenanceBundle\Entity\Service" inversed-by="products" field="service">
+            <join-column name="service_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+        <many-to-many target-entity="Pintushi\Bundle\AutoBundle\Entity\CarSeries" field="autoSeries" inversed-by="products">
+            <join-table name="pintushi_product__car_series">
+                <join-columns>
+                    <join-column name="product_id" referenced-column-name="id"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="car_series_id" referenced-column-name="id"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+    </entity>
+</doctrine-mapping>

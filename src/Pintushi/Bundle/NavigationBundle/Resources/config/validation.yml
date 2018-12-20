@@ -1,0 +1,9 @@
+Pintushi\Bundle\NavigationBundle\Entity\MenuUpdate:
+    constraints:
+        - Pintushi\Bundle\NavigationBundle\Validator\Constraints\MaxNestedLevel: ~
+    properties:
+        title:
+            - NotBlank: ~
+        uri:
+            - NotBlank:
+                groups: [UserDefined]

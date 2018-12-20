@@ -1,0 +1,22 @@
+Pintushi\Bundle\ReportBundle\Entity\Report:
+    attributes:
+        id:
+            groups: ['Default']
+        review:
+            groups: ['Default']
+        createdAt:
+            groups: ['Default']
+        customer:
+            groups: ['Default']
+        creator:
+            groups: ['Default']
+        auto:
+            groups: ['Default']
+    relations:
+        - rel: self
+          href:
+            route: api_shop_account_report_view
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Shop']

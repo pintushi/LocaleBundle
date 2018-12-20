@@ -1,0 +1,7 @@
+Pintushi\Bundle\TaxonomyBundle\Entity\Taxon:
+    constraints:
+        - Pintushi\Bundle\TaxonomyBundle\Validator\Constraints\ParentTaxon:  { groups: ['pintushi']}
+        - Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganization:  { groups: ['pintushi'], 'fields': ['parent']}
+    properties:
+        name:
+            - NotBlank: { groups: ['pintushi'] }

@@ -1,0 +1,9 @@
+Pintushi\Bundle\AutoBundle\Entity\CarSeries:
+    constraints:
+        - Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganization:  { groups: ['pintushi'], 'fields': ['brand']}
+    properties:
+        name:
+            - NotBlank: { groups: ['pintushi'] }
+            - Length: { groups: ['pintushi'] , max: 40}
+        brand:
+            - NotNull: { groups: ['pintushi'] }

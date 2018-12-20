@@ -1,0 +1,15 @@
+pintushi_report:
+    group:
+        name:
+            blank: 分组不能为空
+            long: 分组名名称过长
+        weight:
+            min: 最小权重为 {{ limit }}
+            max: 最大权重为 {{ limit }}
+    item:
+        name:
+            blank: 报告项不能为空
+            long: 报告项名称过长
+        weight:
+            min: 最小权重为 {{ limit }}
+            max: 最大权重为 {{ limit }}

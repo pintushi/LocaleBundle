@@ -1,0 +1,51 @@
+Pintushi\Bundle\ProductBundle\Entity\Product:
+    attributes:
+        id:
+            groups: ['Product', 'inventory', 'Details']
+        name:
+            groups: ['Product', 'write', 'Details']
+        image:
+            groups: ['Product', 'write', 'Details']
+        price:
+            groups: ['Product', 'write', 'Details']
+        description:
+            groups: ['Product', 'write', 'Details']
+        organization:
+            groups: ['write']
+        service:
+            groups: ['write', 'Simple']
+        autoSeries:
+            groups: ['write', 'Product', 'Simple']
+        tracked:
+            groups: ['write', 'Product']
+        onHold:
+            groups: ['inventory']
+        onHand:
+            groups: ['inventory', 'write', 'Product']
+        inventoryName:
+            groups: ['inventory']
+    relations:
+        - rel: self
+          href:
+            route: api_products_get_item
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Product']
+            exclude_if:  expr(not is_granted('pintushi_product_view', object))
+        - rel: edit
+          href:
+            route: api_products_put_item
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Product']
+            exclude_if:  expr(not is_granted('pintushi_product_view', object))
+        - rel: delete
+          href:
+            route: api_products_delete_item
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Product']
+            exclude_if:  expr(not is_granted('pintushi_product_delete', object))

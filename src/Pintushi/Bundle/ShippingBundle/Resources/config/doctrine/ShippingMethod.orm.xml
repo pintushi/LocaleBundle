@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+    <entity name="Pintushi\Bundle\ShippingBundle\Entity\ShippingMethod" table="pintushi_shipping_method">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="enabled" column="is_enabled" type="boolean" />
+        <field name="amount" column="amount" type="integer" />
+        <field name="description" column="description" type="string" nullable="true" />
+        <field name="type" column="type" type="string" nullable="false" />
+        <field name="name" column="name" type="string" nullable="true" />
+        <field name="position" type="integer">
+            <gedmo:sortable-position />
+        </field>
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+        <many-to-one field="organization" target-entity="Pintushi\Bundle\OrganizationBundle\Entity\Organization" >
+            <join-column name="organization_id" referenced-column-name="id" nullable="false" />
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

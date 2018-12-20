@@ -1,0 +1,28 @@
+acls:
+    pintushi_location_create:
+        type: entity
+        class: Pintushi\Bundle\LocationBundle\Entity\Location
+        label: '创建位置'
+        permission: 'CREATE'
+        category: "location"
+
+    pintushi_location_view:
+        type: entity
+        class: Pintushi\Bundle\LocationBundle\Entity\Location
+        label: '查看位置'
+        permission: 'VIEW'
+        category: "location"
+
+    pintushi_location_delete:
+        type: entity
+        class: Pintushi\Bundle\LocationBundle\Entity\Location
+        label: '查看位置'
+        permission: 'DELETE'
+        category: "location"
+
+    pintushi_location_edit:
+        type: entity
+        class: Pintushi\Bundle\LocationBundle\Entity\Location
+        label: '编辑位置'
+        permission: 'EDIT'
+        category: "location"

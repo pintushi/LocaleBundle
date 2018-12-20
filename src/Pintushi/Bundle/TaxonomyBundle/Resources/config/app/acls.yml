@@ -1,0 +1,28 @@
+acls:
+    pintushi_taxon_create:
+        type: entity
+        class: Pintushi\Bundle\TaxonomyBundle\Entity\Taxon
+        label: '创建分类'
+        permission: 'CREATE'
+        category: "taxon"
+
+    pintushi_taxon_view:
+        type: entity
+        class: Pintushi\Bundle\TaxonomyBundle\Entity\Taxon
+        label: '查看分类'
+        permission: 'VIEW'
+        category: "taxon"
+
+    pintushi_taxon_delete:
+        type: entity
+        class: Pintushi\Bundle\TaxonomyBundle\Entity\Taxon
+        label: '查看分类'
+        permission: 'DELETE'
+        category: "taxon"
+
+    pintushi_taxon_edit:
+        type: entity
+        class: Pintushi\Bundle\TaxonomyBundle\Entity\Taxon
+        label: '编辑分类'
+        permission: 'EDIT'
+        category: "taxon"

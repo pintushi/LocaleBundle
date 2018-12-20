@@ -1,0 +1,20 @@
+Pintushi\Bundle\OrderBundle\Entity\OrderItem:
+    attributes:
+        id:
+            groups: [Default, Details]
+        total:
+            groups: [Details]
+        quantity:
+            groups: [Default, Details]
+        unitPrice:
+            groups: [Default, Details]
+        product:
+            groups: [Details]
+        service:
+            groups: [Details]
+        servicePrice:
+            groups: [Details]
+        adjustments:
+            groups: [Default]
+        adjustmentsTotal:
+            groups: [Default, Details]

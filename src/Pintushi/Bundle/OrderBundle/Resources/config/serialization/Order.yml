@@ -1,0 +1,61 @@
+Pintushi\Bundle\OrderBundle\Entity\Order:
+    attributes:
+        id:
+            groups: [Default, Details]
+        items:
+            groups: [Default, Details]
+        itemsTotal:
+            groups: [Default, Details]
+        adjustments:
+            groups: [Default, Details]
+        adjustmentsTotal:
+            groups: [Default, Details]
+        total:
+            groups: [Default, Details]
+        state:
+            groups: [Details]
+        shippingState:
+            groups: [Details]
+        appointmentDate:
+            groups: [Details]
+        paymentState:
+            groups: [Details]
+        number:
+            groups: [Details]
+        auto:
+            groups: [Details]
+        shippingAddress:
+            groups: [Details]
+    relations:
+        - rel: self
+          href:
+            route: api_orders_get_item
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Admin']
+            exclude_if:  expr(is_granted('pintushi_order_view', object) === false)
+        - rel: self
+          href:
+            route: api_shop_account_order_view
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Shop']
+        - rel: edit
+          href:
+            route: api_orders_put_item
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Admin']
+            exclude_if:  expr(is_granted('pintushi_order_view', object) === false)
+        - rel: delete
+          href:
+            route: api_orders_delete_item
+            parameters:
+                id: expr(object.getId())
+          exclusion:
+            groups: ['Admin']
+            exclude_if:  expr(is_granted('pintushi_order_delete', object) === false)
+

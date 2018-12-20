@@ -1,0 +1,28 @@
+acls:
+    pintushi_block_create:
+        type: entity
+        class: Pintushi\Bundle\BlockBundle\Entity\BlockContainer
+        label: '创建幻灯片'
+        permission: 'CREATE'
+        category: "block"
+
+    pintushi_block_view:
+        type: entity
+        class: Pintushi\Bundle\BlockBundle\Entity\BlockContainer
+        label: '查看幻灯片'
+        permission: 'VIEW'
+        category: "block"
+
+    pintushi_block_delete:
+        type: entity
+        class: Pintushi\Bundle\BlockBundle\Entity\BlockContainer
+        label: '查看幻灯片'
+        permission: 'DELETE'
+        category: "block"
+
+    pintushi_block_edit:
+        type: entity
+        class: Pintushi\Bundle\BlockBundle\Entity\BlockContainer
+        label: '编辑幻灯片'
+        permission: 'EDIT'
+        category: "block"

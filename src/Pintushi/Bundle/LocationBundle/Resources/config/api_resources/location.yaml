@@ -1,0 +1,42 @@
+Pintushi\Bundle\LocationBundle\Entity\Location:
+    collectionOperations:
+            post:
+                path: '/admin/locations'
+                denormalization_context:
+                   groups: ["write"]
+                access_control: is_granted('pintushi_location_create')
+            get:
+                path: '/admin/locations'
+                access_control: is_granted('pintushi_location_view')
+                normalization_context:
+                    groups: ["read", "Details"]
+                    enable_max_depth: true
+            get_province:
+                method: 'GET'
+                path: '/location/provinces'
+            get_city:
+                method: 'GET'
+                path: '/location/province/{code}/cities'
+            get_area:
+                method: 'GET'
+                path: '/location/city/{code}/areas'
+    itemOperations:
+            get:
+                path: '/admin/locations/{id}'
+                access_control: is_granted('pintushi_location_view')
+                normalization_context:
+                    groups: ["read", "Details"]
+                    enable_max_depth: true
+            put:
+                path: '/admin/locations/{id}'
+                access_control: is_granted('pintushi_location_edit')
+            delete:
+                path: '/admin/locations/{id}'
+                access_control: is_granted('pintushi_location_delete')
+    attributes:
+        normalization_context:
+            groups: ["read"]
+            enable_max_depth: true
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]

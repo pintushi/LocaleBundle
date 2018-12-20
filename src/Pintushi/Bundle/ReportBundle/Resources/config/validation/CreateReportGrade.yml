@@ -1,0 +1,8 @@
+Pintushi\Bundle\ReportBundle\Request\CreateReportGrade:
+    properties:
+        configItemId:
+            - NotNull:  { groups: ["pintushi"]}
+        score:
+            - NotBlank: { groups: ["pintushi"]}
+            - Choice:
+                choices:  ["none", "good", "warning", "danger"]

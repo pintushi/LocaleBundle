@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="Pintushi\Bundle\ReviewBundle\Entity\OrderReview" table="pintushi_order_review">
+        <one-to-one field="reviewSubject" inversed-by="review" target-entity="Pintushi\Bundle\OrderBundle\Entity\Order"/>
+        <many-to-one target-entity="Pintushi\Bundle\CustomerBundle\Entity\Customer" field="author">
+            <join-column name="author_id" nullable="false" referenced-column-name="id"/>
+        </many-to-one>
+         <many-to-one field="organization" target-entity="Pintushi\Bundle\OrganizationBundle\Entity\Organization">
+            <join-column name="organization_id" referenced-column-name="id" nullable="false" />
+        </many-to-one>
+        <one-to-many field="images" target-entity="Pintushi\Bundle\ReviewBundle\Entity\OrderReviewImage" mapped-by="owner">
+             <cascade>|
+                <cascade-all/>
+            </cascade>
+        </one-to-many>
+    </entity>
+</doctrine-mapping>

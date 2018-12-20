@@ -1,0 +1,23 @@
+Pintushi\Bundle\PaymentBundle\Entity\PaymentMethod:
+    collectionOperations:
+           post:
+               access_control: is_granted('pintushi_payment_method_create')
+               route_name: 'api_admin_payment_method_create'
+           get:
+               acl_enabled: true
+               access_control: is_granted('pintushi_payment_method_view')
+    itemOperations:
+           put:
+               access_control: is_granted('pintushi_payment_method_edit', object)
+               route_name: 'api_admin_payment_method_update'
+           get:
+               access_control: is_granted('pintushi_payment_method_view', object)
+           delete:
+               access_control: is_granted('pintushi_payment_method_delete', object)
+    attributes:
+        normalization_context:
+            groups: ["read"]
+        denormalization_context:
+            groups: ["write"]
+        validation_groups:  ["pintushi"]
+        route_prefix: /admin

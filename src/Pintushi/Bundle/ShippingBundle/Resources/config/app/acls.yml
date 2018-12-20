@@ -1,0 +1,28 @@
+acls:
+    pintushi_shipping_method_create:
+        type: entity
+        class: Pintushi\Bundle\ShippingBundle\Entity\ShippingMethod
+        label: '创建服务方式'
+        permission: 'CREATE'
+        category: "shipping_method"
+
+    pintushi_shipping_method_view:
+        type: entity
+        class: Pintushi\Bundle\ShippingBundle\Entity\ShippingMethod
+        label: '查看服务方式'
+        permission: 'VIEW'
+        category: "shipping_method"
+
+    pintushi_shipping_method_delete:
+        type: entity
+        class: Pintushi\Bundle\ShippingBundle\Entity\ShippingMethod
+        label: '查看服务方式'
+        permission: 'DELETE'
+        category: "shipping_method"
+
+    pintushi_shipping_method_edit:
+        type: entity
+        class: Pintushi\Bundle\ShippingBundle\Entity\ShippingMethod
+        label: '编辑服务方式'
+        permission: 'EDIT'
+        category: "shipping_method"

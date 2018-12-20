@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Pintushi\Bundle\CustomerBundle\Entity\CustomerGroup" table="pintushi_customer_group">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="name" column="name" type="string" nullable="false" />
+
+        <many-to-one field="organization" target-entity="Pintushi\Bundle\OrganizationBundle\Entity\Organization" >
+            <join-column name="organization_id" referenced-column-name="id" nullable="false"/>
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-one>
+    </entity>
+
+</doctrine-mapping>
