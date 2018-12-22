@@ -8,7 +8,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 use Pintushi\Bundle\NavigationBundle\Config\MenuConfiguration;
 use Pintushi\Bundle\NavigationBundle\Event\ConfigureMenuEvent;
-use Pintushi\Component\Config\Resolver\ResolverInterface;
+use Oro\Component\Config\Resolver\ResolverInterface;
 
 class ConfigurationBuilder implements BuilderInterface
 {

@@ -21,33 +21,6 @@ class AppPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $container
-            ->getDefinition('api_platform.doctrine.orm.default.collection_data_provider')
-            ->setClass(CollectionDataProvider::class)
-            ->addArgument(new Reference('pintushi.acl_helper'))
-            ->addArgument(new Reference('api_platform.metadata.resource.metadata_factory'))
-            ;
-
-        $container
-            ->getDefinition('api_platform.doctrine.orm.query_extension.pagination')
-            ->setClass(PaginationExtension::class)
-            ->addArgument(new Reference('pintushi.acl_helper'))
-            ;
-
-        $container
-            ->getDefinition('api_platform.security.expression_language')
-            ->addMethodCall('registerProvider', [new Reference('pintushi.expression_language.workflow_provider')])
-        ;
-        $container
-            ->getDefinition('api_platform.listener.request.deserialize')
-            ->setClass(DeserializeListener::class)
-            ->addArgument(new Reference('pintushi_organization.entity_ownership.record_owner_data'))
-        ;
-        $container
-            ->getDefinition('api_platform.listener.view.write')
-            ->setClass(WriteListener::class)
-            ->addArgument(new Reference('tactician.commandbus'))
-        ;
 
         $container->getDefinition('sm.callback.cascade_transition')->setPublic(true);
     }

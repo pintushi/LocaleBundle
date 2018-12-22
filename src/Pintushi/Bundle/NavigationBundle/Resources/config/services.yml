@@ -56,7 +56,7 @@ services:
         class: 'Knp\Menu\MenuFactory'
 
     pintushi_menu.configuration_resolver:
-        class: 'Pintushi\Component\Config\Resolver\SystemAwareResolver'
+        class: 'Oro\Component\Config\Resolver\SystemAwareResolver'
         arguments:
             - '@service_container'
 

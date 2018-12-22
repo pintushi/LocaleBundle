@@ -1,5 +1,0 @@
-videni_hateoas:
-    metadata:
-        directories:
-            - path: '@PintushiCoreBundle\Resources\config\serialization'
-              namespace_prefix: 'ApiPlatform\Core\Bridge\Doctrine\Orm'

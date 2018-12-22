@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\ReviewBundle\Entity;
 
-use Pintushi\Bundle\FileBundle\Entity\AbstractFile;
+use Videni\Bundle\FileBundle\Entity\AbstractFile;
 
 class OrderReviewImage extends AbstractFile
 {

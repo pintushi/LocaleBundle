@@ -7,8 +7,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
-use Pintushi\Component\Config\Loader\CumulativeConfigLoader;
-use Pintushi\Component\Config\Loader\YamlCumulativeFileLoader;
+use Oro\Component\Config\Loader\CumulativeConfigLoader;
+use Oro\Component\Config\Loader\YamlCumulativeFileLoader;
 
 class EntityConfigPass implements CompilerPassInterface
 {

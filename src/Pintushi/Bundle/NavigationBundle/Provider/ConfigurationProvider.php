@@ -7,8 +7,8 @@ use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 use Pintushi\Bundle\NavigationBundle\DependencyInjection\Configuration;
-use Pintushi\Component\Config\Loader\CumulativeConfigLoader;
-use Pintushi\Component\Config\Loader\YamlCumulativeFileLoader;
+use Oro\Component\Config\Loader\CumulativeConfigLoader;
+use Oro\Component\Config\Loader\YamlCumulativeFileLoader;
 use Pintushi\Component\PhpUtils\ArrayUtil;
 
 class ConfigurationProvider

@@ -23,11 +23,6 @@ services:
         tags:
             - { name: api_platform.data_persister, priority: 30 }
 
-    pintushi.expression_language.workflow_provider:
-        class: Pintushi\Bundle\CoreBundle\ExpressionLanguage\WorkflowExpressionLanguageProvider
-        arguments:
-            ['@workflow.registry']
-
     pintushi.jwt_authentication.handler.authentication_success:
         class: Pintushi\Bundle\CoreBundle\Security\Http\Authentication\AuthenticationSuccessHandler
         arguments:
@@ -48,18 +43,6 @@ services:
         public: false
         arguments:
             - '@validator.mapping.class_metadata_factory'
-
-    pintushi.validator:
-        class: Pintushi\Bundle\CoreBundle\Validator\EventListener\ValidateListener
-        decorates: api_platform.listener.view.validate
-        arguments:
-            - '@api_platform.validator'
-            - '@validator'
-            - '@api_platform.metadata.resource.metadata_factory'
-            - '@pintushi_security.owner.ownership_metadata_provider'
-            - '@Pintushi\Bundle\CoreBundle\Validator\ValidationHelper'
-        tags:
-            - { name: 'kernel.event_listener', event: 'kernel.view', method: 'onKernelView', priority: '64'}
 
     Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganizationValidator:
         arguments:
