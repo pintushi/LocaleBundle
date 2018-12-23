@@ -7,7 +7,7 @@ use Pintushi\Bundle\UserBundle\Entity\TimestampableTrait;
 use Pintushi\Bundle\UserBundle\Entity\ToggleableTrait;
 use Pintushi\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Pintushi\Bundle\FileBundle\Annotation as FileAnnoation;
+use Videni\Bundle\FileBundle\Annotation as FileAnnoation;
 
 /**
  * @FileAnnoation\File()

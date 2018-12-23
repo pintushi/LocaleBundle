@@ -1,3 +1,0 @@
-ROLE_ORGANIZATION:
-    permissions:
-        entity|Pintushi\Bundle\AutoBundle\Entity\CarBrand: [MASK_VIEW_GLOBAL, MASK_CREATE_GLOBAL, MASK_EDIT_GLOBAL]

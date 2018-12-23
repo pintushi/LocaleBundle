@@ -10,7 +10,7 @@ use Pintushi\Component\Core\Model\ImageTrait;
 use Pintushi\Bundle\UserBundle\Entity\TimestampableTrait;
 use Pintushi\Bundle\CustomerBundle\Entity\CustomerInterface;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use Pintushi\Bundle\FileBundle\Annotation as FileAnnoation;
+use Videni\Bundle\FileBundle\Annotation as FileAnnoation;
 
 /**
  * @FileAnnoation\File()

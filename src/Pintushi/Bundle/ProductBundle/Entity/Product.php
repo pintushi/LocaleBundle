@@ -9,7 +9,7 @@ use Pintushi\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Webmozart\Assert\Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Pintushi\Bundle\AutoBundle\Entity\CarSeries;
-use Pintushi\Bundle\FileBundle\Annotation as FileAnnoation;
+use Videni\Bundle\FileBundle\Annotation as FileAnnoation;
 
 /**
  * @Config(

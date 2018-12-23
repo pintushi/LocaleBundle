@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\BlockBundle\Entity;
 
-use Pintushi\Bundle\FileBundle\Annotation as FileAnnoation;
+use Videni\Bundle\FileBundle\Annotation as FileAnnoation;
 
 /**
  * @FileAnnoation\File()

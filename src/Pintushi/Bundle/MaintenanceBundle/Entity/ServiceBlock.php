@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Pintushi\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Pintushi\Bundle\UserBundle\Entity\ToggleableTrait;
-use Pintushi\Bundle\FileBundle\Annotation as FileAnnoation;
+use Videni\Bundle\FileBundle\Annotation as FileAnnoation;
 
 /**
  * @Config(
