@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\PaymentBundle\Repository;
 
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\EntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
 use Pintushi\Bundle\PaymentBundle\Entity\PaymentMethod;
 use Doctrine\Common\Persistence\ManagerRegistry;
 

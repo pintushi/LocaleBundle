@@ -5,7 +5,9 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Pintushi\Bundle\AutoBundle\Entity\CarSeries" table="pintushi_auto_series">
+    <entity name="Pintushi\Bundle\AutoBundle\Entity\CarSeries"
+        repository_class="Pintushi\Bundle\AutoBundle\Repository\CarSeriesRepository"
+        table="pintushi_auto_series">
          <lifecycle-callbacks>
             <lifecycle-callback type="prePersist" method="prePersist"/>
         </lifecycle-callbacks>
@@ -23,7 +25,7 @@
         </field>
         <field name="enabled" column="enabled" type="boolean" />
 
-        <one-to-many target-entity="CarModel" mapped-by="carSeries" field="carModels" >
+        <one-to-many target-entity="CarModel" mapped-by="carSeries" field="carModels" index-by="id" >
             <cascade>
                 <cascade-all/>
             </cascade>

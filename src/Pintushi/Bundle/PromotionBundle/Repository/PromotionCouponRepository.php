@@ -7,7 +7,7 @@ namespace Pintushi\Bundle\PromotionBundle\Repository;
 use Doctrine\ORM\QueryBuilder;
 use Pintushi\Bundle\PromotionBundle\Entity\PromotionCouponInterface;
 use Pintushi\Bundle\PromotionBundle\Repository\PromotionCouponRepositoryInterface;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
 use Pintushi\Bundle\PromotionBundle\Entity\PromotionCoupon;
 use Doctrine\Common\Persistence\ManagerRegistry;
 

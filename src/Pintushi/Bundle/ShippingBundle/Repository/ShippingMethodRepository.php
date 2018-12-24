@@ -6,7 +6,7 @@ namespace Pintushi\Bundle\ShippingBundle\Repository;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\ShippingBundle\Entity\ShippingMethod;
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\EntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
 
 class ShippingMethodRepository extends EntityRepository implements ShippingMethodRepositoryInterface
 {

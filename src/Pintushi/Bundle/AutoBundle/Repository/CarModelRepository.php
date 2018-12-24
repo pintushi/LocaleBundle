@@ -8,7 +8,7 @@ use Pintushi\Bundle\AutoBundle\Entity\CarModel;
 use Pintushi\Bundle\AutoBundle\Entity\CarSeries;
 use Pintushi\Bundle\CustomerBundle\Entity\CustomerInterface;
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\EntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
 
 /**
  * Car repository.

@@ -2,12 +2,12 @@
 
 namespace Pintushi\Bundle\AddressBundle\Repository;
 
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\EntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
 use Pintushi\Bundle\CustomerBundle\Entity\CustomerInterface;
 use Pintushi\Bundle\AddressBundle\Entity\Address;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
-class AddressRepository extends EntityRepository
+class AddressRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

@@ -7,7 +7,7 @@ namespace Pintushi\Bundle\PromotionBundle\Repository;
 
 use Doctrine\ORM\QueryBuilder;
 use Pintushi\Bundle\PromotionBundle\Repository\PromotionRepositoryInterface;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\PromotionBundle\Entity\Promotion;
 

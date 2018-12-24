@@ -2,11 +2,11 @@
 
 namespace Pintushi\Bundle\CoreBundle\Doctrine\ORM;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityRepository as BaseEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Paginator;
 
-class EntityRepository extends ServiceEntityRepository
+class EntityRepository extends BaseEntityRepository
 {
      /**
      * {@inheritdoc}
@@ -52,6 +52,15 @@ class EntityRepository extends ServiceEntityRepository
         return new Paginator(new DoctrineORMAdapter($queryBuilder, false, false));
     }
 
+    public function newQueryBuilderWithCriteria(array $criteria = [])
+    {
+       $qb = $this->createQueryBuilder('o');
+
+       $this->applyCriteria($qb, $criteria);
+
+       return $qb;
+    }
+
      /**
      * @param QueryBuilder $queryBuilder
      * @param array $criteria
@@ -59,11 +68,12 @@ class EntityRepository extends ServiceEntityRepository
     protected function applyCriteria(QueryBuilder $queryBuilder, array $criteria = []): void
     {
         foreach ($criteria as $property => $value) {
-            if (!in_array($property, array_merge($this->_class->getAssociationNames(), $this->_class->getFieldNames()), true)) {
+            $isStartedWithIdentity = $this->isStartedWithIdentity($property);
+            if (!$isStartedWithIdentity && !in_array($property, array_merge($this->_class->getAssociationNames(), $this->_class->getFieldNames()), true)) {
                 continue;
             }
 
-            $name = $this->getPropertyName($property);
+            $name =  $isStartedWithIdentity ? $property: $this->getPropertyName($property);
 
             if (null === $value) {
                 $queryBuilder->andWhere($queryBuilder->expr()->isNull($name));
@@ -103,10 +113,16 @@ class EntityRepository extends ServiceEntityRepository
      */
     protected function getPropertyName(string $name): string
     {
+
         if (false === strpos($name, '.')) {
             return 'o' . '.' . $name;
         }
 
         return $name;
+    }
+
+    private function isStartedWithIdentity($name)
+    {
+        return 0 === strpos($name, 'IDENTITY', 0);
     }
 }

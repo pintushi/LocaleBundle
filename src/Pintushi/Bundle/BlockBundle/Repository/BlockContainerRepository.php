@@ -2,11 +2,11 @@
 
 namespace Pintushi\Bundle\BlockBundle\Repository;
 
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\EntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\BlockBundle\Entity\BlockContainer;
 
-class BlockContainerRepository extends EntityRepository
+class BlockContainerRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

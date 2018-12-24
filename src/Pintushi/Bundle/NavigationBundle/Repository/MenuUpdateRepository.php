@@ -4,7 +4,7 @@ namespace Pintushi\Bundle\NavigationBundle\Repository;
 
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\Cache\CacheProvider;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 use Pintushi\Bundle\NavigationBundle\Entity\MenuUpdateInterface;

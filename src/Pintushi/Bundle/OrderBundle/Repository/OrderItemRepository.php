@@ -7,7 +7,7 @@ use Pintushi\Bundle\OrderBundle\Entity\OrderItem;
 use Pintushi\Component\Order\Repository\OrderItemRepositoryInterface;
 use Pintushi\Bundle\OrderBundle\Entity\OrderItemInterface;
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\EntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
 
 class OrderItemRepository extends EntityRepository implements OrderItemRepositoryInterface
 {

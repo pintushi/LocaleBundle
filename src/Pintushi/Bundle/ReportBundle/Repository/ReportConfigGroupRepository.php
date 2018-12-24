@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\ReportBundle\Repository;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
 use Pintushi\Bundle\ReportBundle\Entity\ReportConfigGroup;
 use Pintushi\Bundle\ReportBundle\Entity\Report;
 use Doctrine\Common\Persistence\ManagerRegistry;

@@ -72,7 +72,7 @@ class CarSeries
         return $this;
     }
 
-    public function getBrand(): CarBrand
+    public function getBrand(): ?CarBrand
     {
         return $this->brand;
     }

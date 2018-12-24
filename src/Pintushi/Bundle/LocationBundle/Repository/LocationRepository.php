@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\LocationBundle\Repository;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\LocationBundle\Entity\Location;
 

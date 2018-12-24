@@ -7,7 +7,7 @@ namespace Pintushi\Bundle\ReviewBundle\Repository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\ReviewBundle\Entity\OrderReview;
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\EntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
 
 class OrderReviewRepository extends EntityRepository
 {

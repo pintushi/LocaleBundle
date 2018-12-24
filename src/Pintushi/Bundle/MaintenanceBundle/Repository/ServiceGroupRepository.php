@@ -4,7 +4,7 @@ namespace Pintushi\Bundle\MaintenanceBundle\Repository;
 
 use Pintushi\Bundle\MaintenanceBundle\Entity\ServiceGroup;
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\EntityRepository;
+use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
 
 class ServiceGroupRepository extends EntityRepository
 {
