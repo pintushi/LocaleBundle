@@ -46,7 +46,7 @@ interface TaxonInterface
 
     public function setLevel(int $level): void;
 
-    public function getPosition(): int;
+    public function getPosition(): ?int;
 
     public function setPosition(int $position): void;
 }

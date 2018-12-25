@@ -255,7 +255,7 @@ class Taxon implements TaxonInterface, OrganizationAwareInterface
     /**
      * {@inheritdoc}
      */
-    public function getPosition(): int
+    public function getPosition(): ?int
     {
         return $this->position;
     }

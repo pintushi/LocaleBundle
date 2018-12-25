@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\BlockBundle\Repository;
 
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
+use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\BlockBundle\Entity\BlockContainer;
 

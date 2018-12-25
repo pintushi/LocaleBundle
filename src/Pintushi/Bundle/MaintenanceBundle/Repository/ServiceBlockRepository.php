@@ -4,7 +4,7 @@ namespace Pintushi\Bundle\MaintenanceBundle\Repository;
 
 use Pintushi\Bundle\MaintenanceBundle\Entity\ServiceBlock;
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
+use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 

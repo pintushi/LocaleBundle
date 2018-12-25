@@ -46,7 +46,8 @@ class EntityOwnedByOrganizationValidator extends ConstraintValidator
         }
 
         $organization = $this->getOrganization($entity);
-        if (null == $organization) {
+        if (null === $organization) {
+            breakhere();
             return;
         }
 
@@ -62,6 +63,19 @@ class EntityOwnedByOrganizationValidator extends ConstraintValidator
             } else {
                 $this->validateOrganization($field, $fieldValue, $organization, $constraint);
             }
+        }
+    }
+
+    protected function validateOrganization($field, $fieldValue, $organization, $constraint)
+    {
+        $fieldOrganization = $this->getOrganization($fieldValue);
+        if ($fieldOrganization !== $organization) {
+             $this->context
+                ->buildViolation($constraint->message)
+                ->atPath($field)
+                ->setParameter('{{organizationName}}', $organization->getName())
+                ->setParameter('{{target}}', $field)
+                ->addViolation();
         }
     }
 
@@ -84,19 +98,6 @@ class EntityOwnedByOrganizationValidator extends ConstraintValidator
         $organizationFieldName = $ownershipMetadata->getOrganizationFieldName();
 
         return $this->getPropertyAccessor()->getValue($entity, $organizationFieldName);
-    }
-
-    protected function validateOrganization($field, $fieldValue, $organization, $constraint)
-    {
-        $fieldOrganization = $this->getOrganization($fieldValue);
-        if ($fieldOrganization !== $organization) {
-             $this->context
-                ->buildViolation($constraint->message)
-                ->atPath($field)
-                ->setParameter('{{entity}}', get_class($fieldValue))
-                ->setParameter('{{id}}', $fieldValue->getId())
-                ->addViolation();
-        }
     }
 
      /**

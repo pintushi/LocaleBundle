@@ -10,7 +10,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="name" column="name" type="string" nullable="true" />
+        <field name="name" column="name" type="string" nullable="false" />
         <field name="description" column="description" type="string" nullable="true" />
         <field name="left" column="tree_left" type="integer">
             <gedmo:tree-left />

@@ -3,7 +3,7 @@
 namespace Pintushi\Bundle\MaintenanceBundle\Repository;
 
 use Pintushi\Bundle\MaintenanceBundle\Entity\Service;
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
+use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 class ServiceRepository extends EntityRepository

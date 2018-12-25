@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\SmsBundle\Repository;
 
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
+use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\SmsBundle\Entity\GatewayConfig;
 use Doctrine\ORM\QueryBuilder;

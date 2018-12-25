@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\LocationBundle\Repository;
 
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
+use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\LocationBundle\Entity\Location;
 
@@ -13,14 +13,19 @@ class LocationRepository extends ServiceEntityRepository
         parent::__construct($registry, Location::class);
     }
 
-    public function addChildrenQuery($queryBuilder, $parent, $level)
+    public function createQueryBuilderByParent($parentCode, $level)
     {
-         $queryBuilder
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        $queryBuilder
                 ->andWhere('o.level = :level')
-                ->andWhere('IDENTITY(o.parent) = :parentId')
+                ->innerJoin('o.parent', 'p')
+                ->andWhere('p.code = :parentCode')
                 ->setParameter('level', $level)
-                ->setParameter('parentId', $parent->getId())
+                ->setParameter('parentCode', $parentCode)
             ;
+
+        return $queryBuilder;
     }
 
     public function findFullPlaces(Location $location)

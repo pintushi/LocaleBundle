@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class EntityOwnedByOrganization extends Constraint
 {
-    public $message = "You don't have access to entity {{id}} of {{entity}}";
+    public $message = " {{target}} is not owned by organization {{organizationName}}";
 
     public $fields = array();
 

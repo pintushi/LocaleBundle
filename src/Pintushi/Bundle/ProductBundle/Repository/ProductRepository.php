@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\ProductBundle\Repository;
 
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
+use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Pintushi\Bundle\ProductBundle\Entity\Product;
 use Doctrine\ORM\QueryBuilder;

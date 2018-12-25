@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\AddressBundle\Repository;
 
-use Pintushi\Bundle\CoreBundle\Doctrine\ORM\ServiceEntityRepository;
+use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository;
 use Pintushi\Bundle\CustomerBundle\Entity\CustomerInterface;
 use Pintushi\Bundle\AddressBundle\Entity\Address;
 use Doctrine\Common\Persistence\ManagerRegistry;
