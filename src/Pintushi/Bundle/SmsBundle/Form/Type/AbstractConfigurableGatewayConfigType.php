@@ -11,9 +11,9 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Pintushi\Bundle\SmsBundle\Entity\GatewayConfig;
-use Pintushi\Bundle\PromotionBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\AbstractType;
 
-abstract class AbstractConfigurableGatewayConfigType extends AbstractResourceType
+abstract class AbstractConfigurableGatewayConfigType extends AbstractType
 {
     /**
      * @var FormTypeRegistryInterface
@@ -23,10 +23,8 @@ abstract class AbstractConfigurableGatewayConfigType extends AbstractResourceTyp
     /**
      * {@inheritdoc}
      */
-    public function __construct(string $dataClass, array $validationGroups = [], FormTypeRegistryInterface $formTypeRegistry)
+    public function __construct(FormTypeRegistryInterface $formTypeRegistry)
     {
-        parent::__construct($dataClass, $validationGroups);
-
         $this->formTypeRegistry = $formTypeRegistry;
     }
 

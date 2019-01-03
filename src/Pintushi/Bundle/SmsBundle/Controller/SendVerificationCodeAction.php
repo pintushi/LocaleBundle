@@ -19,6 +19,6 @@ class SendVerificationCodeAction extends Controller
 
     public function __invoke(Request $request)
     {
-        return $this->smsCaptchaSender->send($request->get('phone'));
+        return $this->smsCaptchaSender->send($request->attributes('phone'));
     }
 }

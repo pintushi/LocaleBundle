@@ -16,17 +16,20 @@ final class AliyunGatewayConfigurationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('access_key_id', TextType::class, [
+            ->add('accessKeyId', TextType::class, [
+                'property_path' => '[access_key_id]',
                 'constraints' => [
                     new NotBlank(['groups' => ['pintushi']]),
                 ],
             ])
-            ->add('access_key_secret', TextType::class, [
+            ->add('accessKeySecret', TextType::class, [
+                'property_path' => '[access_key_secret]',
                 'constraints' => [
                     new NotBlank(['groups' => ['pintushi']]),
                 ],
             ])
-            ->add('sign_name', TextType::class, [
+            ->add('signName', TextType::class, [
+                'property_path' => '[sign_name]',
                 'constraints' => [
                     new NotBlank(['groups' => ['pintushi']]),
                 ],

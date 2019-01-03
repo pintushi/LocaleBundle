@@ -24,23 +24,10 @@ final class GatewayConfigType extends AbstractConfigurableGatewayConfigType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('gateway', SmsGatewayChoiceType::class, [
-                'label' => 'pintushi.form.promotion_rule.type',
-                'attr' => [
-                    'data-form-collection' => 'update',
-                ],
-            ])
+            ->add('gateway', SmsGatewayChoiceType::class)
             ->add('priority', IntegerType::class)
             ->add('enabled', CheckboxType::class)
             ->add('templates', SmsTemplateType::class)
         ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_sms_gateway_config';
     }
 }

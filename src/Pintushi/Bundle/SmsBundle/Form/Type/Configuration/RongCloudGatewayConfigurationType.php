@@ -16,12 +16,14 @@ final class RongCloudGatewayConfigurationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('app_key', TextType::class, [
+            ->add('appKey', TextType::class, [
+                'property_path' => '[app_key]',
                 'constraints' => [
                     new NotBlank(['groups' => ['pintushi']]),
                 ],
             ])
-            ->add('app_secret', TextType::class, [
+            ->add('appSecret', TextType::class, [
+                'property_path' => '[app_secret]',
                 'constraints' => [
                     new NotBlank(['groups' => ['pintushi']]),
                 ],

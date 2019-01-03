@@ -17,12 +17,14 @@ final class SmsTemplateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('verification_code', TextType::class, [
+            ->add('verificationCode', TextType::class, [
+                'property_path' => '[verification_code]',
                 'constraints' => [
                     new NotBlank(['groups' => ['pintushi']]),
                 ],
             ])
-            ->add('service_code', TextType::class, [
+            ->add('serviceCode', TextType::class, [
+                'property_path' => '[service_code]',
                 'constraints' => [
                     new NotBlank(['groups' => ['pintushi']]),
                 ],

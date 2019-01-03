@@ -95,7 +95,7 @@ class SmsCaptchaSender implements SmsCaptchaSenderInterface
      *
      * @return bool
      */
-    protected function canSendAgain($phoneNumber)
+    private function canSendAgain($phoneNumber)
     {
         if ($this->cache->contains(self::getCachekey($phoneNumber))) {
             $data = $this->cache->fetch(self::getCachekey($phoneNumber));
@@ -109,7 +109,7 @@ class SmsCaptchaSender implements SmsCaptchaSenderInterface
         return true;
     }
 
-    protected function generateCode()
+    private function generateCode()
     {
         return (string)mt_rand(100000, 999999);
     }
