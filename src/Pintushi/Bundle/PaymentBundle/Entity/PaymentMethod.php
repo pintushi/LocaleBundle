@@ -14,7 +14,7 @@ use Payum\Core\Model\GatewayConfigInterface;
 /**
  * @Config(
  *  defaultValues={
- *      "security"={
+ *     "security"={
  *          "type"="ACL",
  *          "group_name"="",
  *          "category"="payum",
@@ -23,7 +23,7 @@ use Payum\Core\Model\GatewayConfigInterface;
  *           "owner_type"="ORGANIZATION",
  *           "owner_field_name"="organization",
  *           "owner_column_name"="organization_id",
- *      },
+ *     },
  *  }
  * )
  */

@@ -14,7 +14,8 @@ class ProductRepository extends ServiceEntityRepository implements ProductReposi
     {
         parent::__construct($registry, Product::class);
     }
-        /**
+
+    /**
      * {@inheritdoc}
      */
     public function findByName($name)
@@ -83,5 +84,18 @@ class ProductRepository extends ServiceEntityRepository implements ProductReposi
             ->andWhere('IDENTITY(o.service)=:serviceId')
             ->setParameter('serviceId', $serviceId)
             ->setParameter('seriesId', $autoSeriesId);
+    }
+
+     /**
+     * {@inheritdoc}
+     */
+    public function createDetailsQueryBuilder(): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('o')
+            ->addSelect('a')
+            ->leftJoin('o.autoSeries', 'a')
+        ;
+
+        return $queryBuilder;
     }
 }

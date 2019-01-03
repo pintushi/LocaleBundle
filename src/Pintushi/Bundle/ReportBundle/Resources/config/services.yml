@@ -6,7 +6,3 @@ services:
 
     Pintushi\Bundle\ReportBundle\:
         resource: '../../{Repository,DataFixtures,Command,Provider}'
-
-    Pintushi\Bundle\ReportBundle\Controller\:
-        resource: '../../Controller'
-        tags: ['controller.service_arguments']

@@ -80,12 +80,4 @@ final class PaymentMethodChoiceType extends AbstractType
     {
         return ChoiceType::class;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_payment_method_choice';
-    }
 }

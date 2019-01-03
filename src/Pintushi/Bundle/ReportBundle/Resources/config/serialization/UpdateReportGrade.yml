@@ -1,6 +1,0 @@
-Pintushi\Bundle\ReportBundle\Request\UpdateReportGrade:
-    attributes:
-        id:
-            groups: ['write']
-        score:
-            groups: ['write']

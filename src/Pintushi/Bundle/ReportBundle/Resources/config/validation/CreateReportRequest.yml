@@ -1,7 +1,0 @@
-Pintushi\Bundle\ReportBundle\Request\CreateReportRequest:
-    properties:
-        orderId:
-            - NotBlank: { groups: ["pintushi"]}
-        grades:
-            - Valid:  { groups: ["pintushi"]}
-            - Length: { groups: ["pintushi"], min: 1, max: 100}

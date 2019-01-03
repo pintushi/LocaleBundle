@@ -34,7 +34,7 @@
         <many-to-one target-entity="Pintushi\Bundle\MaintenanceBundle\Entity\Service" inversed-by="products" field="service">
             <join-column name="service_id" referenced-column-name="id" nullable="true" />
         </many-to-one>
-        <many-to-many target-entity="Pintushi\Bundle\AutoBundle\Entity\CarSeries" field="autoSeries" inversed-by="products">
+        <many-to-many target-entity="Pintushi\Bundle\AutoBundle\Entity\CarSeries" field="autoSeries" inversed-by="products" index-by="id">
             <join-table name="pintushi_product__car_series">
                 <join-columns>
                     <join-column name="product_id" referenced-column-name="id"/>

@@ -1,6 +1,0 @@
-Pintushi\Bundle\ReportBundle\Request\CreateReportGrade:
-    attributes:
-        configItemId:
-            groups: ['write']
-        score:
-            groups: ['write']

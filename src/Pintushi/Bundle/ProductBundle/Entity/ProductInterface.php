@@ -9,7 +9,7 @@ use Pintushi\Bundle\InventoryBundle\Entity\StockableInterface;
 
 interface ProductInterface extends ToggleableInterface, TimestampableInterface, OrganizationAwareInterface, StockableInterface
 {
-    public function getName(): string;
+    public function getName(): ?string;
 
     public function setName($name);
 

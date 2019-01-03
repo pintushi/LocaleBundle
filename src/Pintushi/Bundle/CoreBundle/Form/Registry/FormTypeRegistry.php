@@ -25,7 +25,6 @@ final class FormTypeRegistry implements FormTypeRegistryInterface
      */
     public function get(string $identifier, string $typeIdentifier): ?string
     {
-
         if (!$this->has($identifier, $typeIdentifier)) {
             return null;
         }

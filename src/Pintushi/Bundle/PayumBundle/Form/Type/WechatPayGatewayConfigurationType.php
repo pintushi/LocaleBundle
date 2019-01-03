@@ -20,8 +20,9 @@ final class WechatPayGatewayConfigurationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('app_id', TextType::class, [
+            ->add('appId', TextType::class, [
                 'label' => 'pintushi.form.gateway_configuration.wechat_pay.app_id',
+                'property_path' => '[app_id]',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'pintushi.gateway_config.wechat_pay.app_id.not_blank',
@@ -29,8 +30,9 @@ final class WechatPayGatewayConfigurationType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('mch_id', TextType::class, [
+            ->add('mchId', TextType::class, [
                 'label' => 'pintushi.form.gateway_configuration.wechat_pay.mch_id',
+                'property_path' => '[mch_id]',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'pintushi.gateway_config.wechat_pay.mch_id.not_blank',
@@ -38,8 +40,9 @@ final class WechatPayGatewayConfigurationType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('api_key', TextType::class, [
+            ->add('apiKey', TextType::class, [
                 'label' => 'pintushi.form.gateway_configuration.wechat_pay.api_key',
+                'property_path' => '[api_key]',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'pintushi.gateway_config.wechat_pay.api_key.not_blank',

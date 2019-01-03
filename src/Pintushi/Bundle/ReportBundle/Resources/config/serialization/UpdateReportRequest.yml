@@ -1,6 +1,0 @@
-Pintushi\Bundle\ReportBundle\Request\UpdateReportRequest:
-    attributes:
-        review:
-            groups: ['write']
-        grades:
-            groups: ['write']

@@ -1,5 +1,0 @@
-Pintushi\Bundle\ReportBundle\Request\UpdateReportRequest:
-    properties:
-        grades:
-            - Valid:  { groups: ["pintushi"]}
-            - Length: { groups: ["pintushi"], max: 100}

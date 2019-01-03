@@ -10,10 +10,6 @@ services:
     Pintushi\Bundle\PaymentBundle\:
         resource: '../../{Repository,DataFixtures,Command,Factory}'
 
-    Pintushi\Bundle\PaymentBundle\Controller\:
-        resource: '../../Controller'
-        tags: ['controller.service_arguments']
-
     pintushi.registry.payment_methods_resolver:
         class: Sylius\Component\Registry\PrioritizedServiceRegistry
         arguments:
@@ -30,7 +26,7 @@ services:
         arguments:
             - '@Pintushi\Bundle\PaymentBundle\Repository\PaymentMethodRepository'
         tags:
-            -  { name: "pintushi.payment_method_resolver", type: "default", label: "Default"}
+            -  { name: "pintushi.payment_method_resolver", type: "default", label: "Default" }
 
     PaymentMethodRepositoryInterface: '@Pintushi\Bundle\PaymentBundle\Repository\PaymentMethodRepository'
 

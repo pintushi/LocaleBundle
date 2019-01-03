@@ -1,6 +1,5 @@
 imports:
     - { resource: 'services/action.yml'}
-    - { resource: 'services/controller.yml'}
     - { resource: 'services/extension.yml'}
     - { resource: 'services/factory.yml'}
     - { resource: 'services/form.yml'}
