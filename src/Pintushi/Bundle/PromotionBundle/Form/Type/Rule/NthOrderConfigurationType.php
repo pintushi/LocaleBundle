@@ -25,12 +25,4 @@ final class NthOrderConfigurationType extends AbstractType
             ])
         ;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'pintushi_promotion_rule_nth_order_configuration';
-    }
 }

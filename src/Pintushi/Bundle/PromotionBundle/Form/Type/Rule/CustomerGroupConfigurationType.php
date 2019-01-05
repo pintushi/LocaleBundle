@@ -16,20 +16,13 @@ final class CustomerGroupConfigurationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('group_id', CustomerGroupChoiceType::class, [
+            ->add('groupId', CustomerGroupChoiceType::class, [
+                'property_path' => '[group_id]',
                 'label' => 'pintushi.form.promotion_rule.customer_group.group',
                 'constraints' => [
                     new NotBlank(['groups' => ['pintushi']]),
                 ],
             ])
         ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'pintushi_promotion_rule_customer_group_configuration';
     }
 }

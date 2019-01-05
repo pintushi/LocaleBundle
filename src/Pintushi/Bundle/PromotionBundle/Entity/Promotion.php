@@ -103,14 +103,14 @@ class Promotion implements PromotionInterface, OrganizationAwareInterface
     /**
      * @var Collection| PromotionActionInterface[]
      */
-    protected $actions;
+    private $actions;
 
     public function __construct()
     {
         $this->createdAt = new \DateTime();
 
         $this->coupons = new ArrayCollection();
-        $this->rules = new ArrayCollection();
+        $this->rules   = new ArrayCollection();
         $this->actions = new ArrayCollection();
     }
 

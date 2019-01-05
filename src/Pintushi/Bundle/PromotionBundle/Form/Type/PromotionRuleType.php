@@ -30,12 +30,4 @@ final class PromotionRuleType extends AbstractConfigurablePromotionElementType
             ])
         ;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_rule';
-    }
 }

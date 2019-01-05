@@ -15,12 +15,4 @@ final class PromotionActionCollectionType extends AbstractConfigurationCollectio
 
         $resolver->setDefault('entry_type', PromotionActionType::class);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_action_collection';
-    }
 }

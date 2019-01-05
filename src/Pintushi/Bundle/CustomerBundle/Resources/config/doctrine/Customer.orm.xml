@@ -15,6 +15,7 @@
             <unique-constraint columns="phone_number,organization_id" />
             <unique-constraint columns="username,organization_id" />
         </unique-constraints>
+
         <field name="username" column="username" type="string" nullable="true" />
         <field name="usernameCanonical" column="username_canonical" type="string" nullable="true" />
         <field name="enabled" column="enabled" type="boolean" nullable="false" />

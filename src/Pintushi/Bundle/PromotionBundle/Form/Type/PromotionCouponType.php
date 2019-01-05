@@ -34,12 +34,4 @@ final class PromotionCouponType extends AbstractResourceType
             ])
         ;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_coupon';
-    }
 }

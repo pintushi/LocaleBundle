@@ -4,9 +4,9 @@ Pintushi\Bundle\CustomerBundle\Entity\Customer:
         - Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganization:  { groups: ['pintushi'], 'fields': ['group']}
     properties:
         phoneNumber:
-            - Length: { groups: ['create'] , max: 255}
+            - Length: { groups: ['add_customer'] , max: 11}
         plainPassword:
-          - NotBlank: { groups: ['create'] }
+          - NotBlank: { groups: ['add_customer'] }
           - Rollerworks\Component\PasswordStrength\Validator\Constraints\PasswordStrength:
                 minLength: 6
                 minStrength: 3

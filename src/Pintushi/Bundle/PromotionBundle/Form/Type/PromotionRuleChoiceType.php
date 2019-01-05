@@ -37,12 +37,4 @@ final class PromotionRuleChoiceType extends AbstractType
     {
         return ChoiceType::class;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_rule_choice';
-    }
 }

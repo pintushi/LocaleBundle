@@ -29,13 +29,4 @@ final class PromotionActionType extends AbstractConfigurablePromotionElementType
             ])
         ;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_action';
-    }
-
 }

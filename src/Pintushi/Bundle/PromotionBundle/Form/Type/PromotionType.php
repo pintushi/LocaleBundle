@@ -11,8 +11,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\AbstractType;
 
-final class PromotionType extends AbstractResourceType
+final class PromotionType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -59,13 +60,5 @@ final class PromotionType extends AbstractResourceType
                 'label' => 'pintushi.form.promotion.actions',
              ])
         ;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion';
     }
 }

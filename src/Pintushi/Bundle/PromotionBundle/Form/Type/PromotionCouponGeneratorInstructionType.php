@@ -35,12 +35,4 @@ final class PromotionCouponGeneratorInstructionType extends AbstractResourceType
             ])
         ;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_coupon_generator_instruction';
-    }
 }

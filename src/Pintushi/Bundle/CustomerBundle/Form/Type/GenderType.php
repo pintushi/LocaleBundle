@@ -2,34 +2,26 @@
 
 declare(strict_types=1);
 
-namespace Pintushi\Bundle\PromotionBundle\Form\Type;
+namespace Pintushi\Bundle\CustomerBundle\Form\Type;
 
+use Pintushi\Bundle\UserBundle\Entity\UserInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class PromotionActionChoiceType extends AbstractType
+final class GenderType extends AbstractType
 {
-    /**
-     * @var array
-     */
-    private $actions;
-
-    /**
-     * @param array $actions
-     */
-    public function __construct(array $actions)
-    {
-        $this->actions = $actions;
-    }
-
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'choices' => array_flip($this->actions),
+            'choices' => [
+                '未知' => UserInterface::UNKNOWN_GENDER,
+                '男' => UserInterface::MALE_GENDER,
+                '女' => UserInterface::FEMALE_GENDER,
+            ],
         ]);
     }
 

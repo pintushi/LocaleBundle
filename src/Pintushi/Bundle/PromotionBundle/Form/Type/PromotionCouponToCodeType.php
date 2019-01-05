@@ -84,12 +84,4 @@ final class PromotionCouponToCodeType extends AbstractType implements DataTransf
     {
         return TextType::class;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_coupon_to_code';
-    }
 }

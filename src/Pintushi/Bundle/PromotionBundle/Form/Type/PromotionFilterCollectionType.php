@@ -21,12 +21,4 @@ final class PromotionFilterCollectionType extends AbstractType
             'required' => false
         ]);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_filters';
-    }
 }

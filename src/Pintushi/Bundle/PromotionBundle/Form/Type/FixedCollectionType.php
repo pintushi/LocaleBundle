@@ -52,14 +52,6 @@ final class FixedCollectionType extends AbstractType
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_fixed_collection';
-    }
-
-    /**
      * @return \Closure
      */
     private function optionalCallableNormalizer(): \Closure

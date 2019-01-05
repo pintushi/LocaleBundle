@@ -28,12 +28,4 @@ final class ItemTotalConfigurationType extends AbstractType
             ])
         ;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_rule_item_total_configuration';
-    }
 }

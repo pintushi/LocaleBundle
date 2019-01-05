@@ -18,12 +18,4 @@ final class PromotionRuleCollectionType extends AbstractConfigurationCollectionT
 
         $resolver->setDefault('entry_type', PromotionRuleType::class);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix(): string
-    {
-        return 'pintushi_promotion_rule_collection';
-    }
 }

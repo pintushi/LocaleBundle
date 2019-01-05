@@ -1,8 +1,0 @@
-Pintushi\Bundle\CustomerBundle\Entity\CustomerGroup:
-    attributes:
-        id:
-            groups: ['read']
-        name:
-            groups: ['read', 'write']
-        organization:
-            groups: ['write', 'read']

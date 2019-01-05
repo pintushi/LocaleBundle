@@ -1,8 +1,6 @@
 services:
     Pintushi\Bundle\PromotionBundle\Form\Type\PromotionType:
-        arguments:
-            - 'Pintushi\Bundle\PromotionBundle\Entity\Promotion'
-            - ['pintushi']
+        public: true
         tags:
             - { name: "form.type" }
 

@@ -12,7 +12,7 @@ services:
             - '@Pintushi\Bundle\UserBundle\Canonicalizer\Canonicalizer'
 
     Pintushi\Bundle\CustomerBundle\:
-        resource: '../../{Repository,DataFixtures,Command}'
+        resource: '../../{Repository,Command,Form/Type}'
 
     Pintushi\Bundle\CustomerBundle\Form\Type\CustomerGroupChoiceType:
         arguments:
