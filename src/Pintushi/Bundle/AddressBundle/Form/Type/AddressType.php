@@ -29,7 +29,7 @@ class AddressType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('regionCode', HiddenType::class, [
+            ->add('regionCode', TextType::class, [
                 'label' => 'pintushi.form.address.region',
                 'error_bubbling' => false,
                 'mapped' => true,
