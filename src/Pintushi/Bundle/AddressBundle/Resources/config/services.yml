@@ -10,10 +10,6 @@ services:
     Pintushi\Component\Address\Comparator\AddressComparator: ~
 
     Pintushi\Bundle\AddressBundle\Form\Type\AddressType:
-        arguments:
-            - 'Pintushi\Bundle\AddressBundle\Entity\Address'
-            - '@Pintushi\Bundle\AddressBundle\Form\EventSubscriber\AddressTypeSubscriber'
-            - ['pintushi']
         tags:
             - { name: 'form.type'}
 

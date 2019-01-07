@@ -13,7 +13,7 @@ use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository;
 /**
  * Car repository.
  */
-class CarModelRepository extends EntityRepository
+class CarModelRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

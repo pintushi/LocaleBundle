@@ -45,21 +45,3 @@ services:
 
     Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaValidator:
         arguments: ['@pintushi.phone_number_verification.cache']
-
-# organization sms
-    # pintushi.organization_sms_factory:
-    #     class: Pintushi\Bundle\SmsBundle\Factory\SmsFactory
-
-    # pintushi.organization.action.verification_code_send:
-    #     class: Pintushi\Bundle\SmsBundle\Controller\SendVerificationCodeAction
-    #     arguments:
-    #         - '@pintushi.organization.phone_number_verification'
-
-
-    # pintushi.organization.phone_number_verification:
-    #     class: Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaSender
-    #     factory: Pintushi\Bundle\SmsBundle\Verification\SmsCaptchaSenderFactory:create
-    #     arguments:
-    #         - "@=service('pintushi.organization_sms_factory').create()"
-    #     calls:
-    #         - [ setMessageTemplateBuilder, ['@Pintushi\Bundle\SmsBundle\Builder\MessageTemplateGatewayConfigBuilder'] ]

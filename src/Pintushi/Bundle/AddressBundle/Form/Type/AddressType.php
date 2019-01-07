@@ -3,23 +3,21 @@
 namespace Pintushi\Bundle\AddressBundle\Form\Type;
 
 use Pintushi\Bundle\AddressBundle\Form\EventSubscriber\AddressTypeSubscriber;
-use Pintushi\Bundle\PromotionBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Pintushi\Bundle\AddressBundle\Validator\Constraints\AddressConstraint;
+use Symfony\Component\Form\AbstractType;
 
-class AddressType extends AbstractResourceType
+class AddressType extends AbstractType
 {
     /**
      * @var AddressTypeSubscriber
      */
     protected $addressTypeSubscriber;
 
-    public function __construct($dataClass, AddressTypeSubscriber $addressTypeSubscriber, array $validationGroups = [])
+    public function __construct(AddressTypeSubscriber $addressTypeSubscriber)
     {
-        parent::__construct($dataClass, $validationGroups);
-
         $this->addressTypeSubscriber = $addressTypeSubscriber;
     }
 
@@ -41,13 +39,5 @@ class AddressType extends AbstractResourceType
                 'label' => 'pintushi.form.address.street'
             ])
             ->addEventSubscriber($this->addressTypeSubscriber);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'pintushi_address';
     }
 }

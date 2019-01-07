@@ -14,24 +14,25 @@ class AddressRepository extends ServiceEntityRepository
         parent::__construct($registry, Address::class);
     }
 
-    public function getCustomerAddressCount(CustomerInterface $customer)
+    public function getCustomerAddressesCount(CustomerInterface $customer)
     {
-        $qb = $this->createQueryBuilder('o');
+        $qb = $this->createQueryBuilder($customer);
 
-        return $qb->select('COUNT(o.id)')
-            ->innerJoin('o.customer', 'c')
-            ->where('c.id=:customerId')
-            ->setParameter('customerId', $customer->getId())
+        return
+            $qb->select('count(o.id)')
             ->getQuery()
             ->getSingleScalarResult();
     }
 
-    public function addCustomerQuery($queryBuilder, CustomerInterface $customer)
+    public function createCustomerQueryBuilder(CustomerInterface $customer)
     {
-        $queryBuilder
-            ->innerJoin('o.customer', 'customer')
-            ->andWhere('customer = :customer')
-            ->setParameter('customer', $customer)
-            ;
+        $qb = $this->createQueryBuilder('o');
+
+        $qb
+           ->andWhere('IDENTITY(o.id)=:customerId')
+           ->setParameter('customerId', $customer->getId())
+        ;
+
+        return $qb;
     }
 }
