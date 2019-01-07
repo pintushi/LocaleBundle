@@ -7,8 +7,9 @@ namespace Pintushi\Bundle\ReviewBundle\Factory;
 use Pintushi\Bundle\ReviewBundle\Entity\ReviewableInterface;
 use Pintushi\Bundle\ReviewBundle\Entity\ReviewerInterface;
 use Pintushi\Bundle\ReviewBundle\Entity\ReviewInterface;
+use Videni\Bundle\RestBundle\Factory\FactoryInterface;
 
-class ReviewFactory implements ReviewFactoryInterface
+class ReviewFactory implements ReviewFactoryInterface, FactoryInterface
 {
     /**
      * @var FactoryInterface

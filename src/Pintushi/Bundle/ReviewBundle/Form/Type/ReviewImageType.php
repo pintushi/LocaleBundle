@@ -24,14 +24,6 @@ final class ReviewImageType extends AbstractResourceType
         $builder->addEventListener(FormEvents::SUBMIT, [$this, 'submit']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'pintushi_product_image';
-    }
-
     public function submit(FormEvent $event)
     {
         $reviewImage = $event->getData();

@@ -50,9 +50,3 @@ services:
            - '@security.authorization_checker'
         tags:
             - { name: validator.constraint_validator}
-
-    Pintushi\Bundle\CoreBundle\Serializer\EmptyDateTimeDenormalizer:
-        arguments:
-            - '@api_platform.serializer.normalizer.item'
-        tags:
-            - { name: 'serializer.normalizer', priority: 32}

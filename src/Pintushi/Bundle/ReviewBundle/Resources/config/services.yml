@@ -10,14 +10,6 @@ services:
     Pintushi\Bundle\ReviewBundle\:
         resource: '../../{Repository,DataFixtures,Command,Factory}'
 
-    Pintushi\Bundle\ReviewBundle\Controller\:
-        resource: '../../Controller'
-        tags: ['controller.service_arguments']
-
     Pintushi\Bundle\ReviewBundle\Factory\ReviewFactory:
         arguments:
             - 'Pintushi\Bundle\ReviewBundle\Entity\OrderReview'
-
-    Pintushi\Bundle\ReviewBundle\Serializer\OrderReviewImageNormalizer:
-        tags:
-            - { name: 'serializer.normalizer', priority: 8}
