@@ -29,7 +29,7 @@ class AddressRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('o');
 
         $qb
-           ->andWhere('IDENTITY(o.id)=:customerId')
+           ->andWhere('IDENTITY(o.customer)=:customerId')
            ->setParameter('customerId', $customer->getId())
         ;
 

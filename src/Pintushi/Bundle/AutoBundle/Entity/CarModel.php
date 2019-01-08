@@ -11,13 +11,15 @@ use Pintushi\Bundle\UserBundle\Entity\TimestampableTrait;
 use Pintushi\Bundle\CustomerBundle\Entity\CustomerInterface;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Videni\Bundle\FileBundle\Annotation as FileAnnoation;
+use Pintushi\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
+use Pintushi\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
 
 /**
  * @FileAnnoation\File()
  */
-class CarModel
+class CarModel implements OrganizationAwareInterface
 {
-    use TimestampableTrait;
+    use TimestampableTrait, OrganizationAwareTrait;
 
     private $name;
 
@@ -108,6 +110,8 @@ class CarModel
 
         $series = $this->getCarSeries();
         $this->setBrandLogo($series->getBrand()->getImage());
+
+        $this->setOrganization($series->getOrganization());
     }
 
     /**

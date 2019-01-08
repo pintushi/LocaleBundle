@@ -8,11 +8,12 @@ use Pintushi\Bundle\UserBundle\Entity\ToggleableTrait;
 use Pintushi\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Videni\Bundle\FileBundle\Annotation as FileAnnoation;
+use Pintushi\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
 
 /**
  * @FileAnnoation\File()
  */
-class CarSeries
+class CarSeries implements OrganizationAwareInterface
 {
     use TimestampableTrait, ToggleableTrait, OrganizationAwareTrait;
 

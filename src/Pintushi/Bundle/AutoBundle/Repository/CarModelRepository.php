@@ -72,9 +72,9 @@ class CarModelRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
     }
 
-    public function addCustomerQuery($queryBuilder, CustomerInterface $customer)
+    public function createCustomerQueryBuilder(CustomerInterface $customer)
     {
-        return $queryBuilder
+        return $this->createQueryBuilder('o')
             ->innerJoin('o.customers', 'c')
             ->andWhere('c.id = :customerId')
             ->setParameter('customerId', $customer->getId())
