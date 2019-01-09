@@ -11,7 +11,7 @@ services:
     Pintushi\Bundle\SmsBundle\EventListener\VerificationCodeListener: ~
 
     Pintushi\Bundle\SmsBundle\:
-        resource: '../../{Repository,DataFixtures,Command}'
+        resource: '../../{Repository,DataFixtures,Command,Validator}'
 
     pintushi.phone_number_verification.cache:
         public: false
