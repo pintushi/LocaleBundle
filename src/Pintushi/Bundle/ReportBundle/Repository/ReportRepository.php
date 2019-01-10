@@ -15,17 +15,20 @@ class ReportRepository extends ServiceEntityRepository
         parent::__construct($registry, Report::class);
     }
 
-    public function addCustomerQuery($queryBuilder, CustomerInterface $customer)
+    public function createCustomerQueryBuilder(CustomerInterface $customer)
     {
-        $queryBuilder
-            ->innerJoin('o.order', 'order')
+        $qb = $this->createQueryBuilder('o');
+
+        $qb
             ->leftJoin('o.creator', 'c')
             ->addSelect('c')
             ->leftJoin('o.auto', 'a')
             ->addSelect('a')
-            ->andWhere('IDENTITY(order.customer)=:customerId')
+            ->andWhere('IDENTITY(o.customer)=:customerId')
             ->setParameter('customerId', $customer->getId())
             ;
+
+        return $qb;
     }
 
     /**

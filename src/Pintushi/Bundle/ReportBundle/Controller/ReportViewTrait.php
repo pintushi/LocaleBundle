@@ -28,9 +28,7 @@ trait ReportViewTrait
                 return  [
                     "score" => $grade->getGrade(),
                     "id" => $grade->getId(),
-                    "item" => [
-                        "id" => $grade->getReportConfigItem()->getId()
-                    ]
+                    "item_id" => $grade->getReportConfigItem()->getId()
                 ];
             }, array_values($report->getGrades()->toArray())),
             'groups' => array_map(function ($configGroup) {

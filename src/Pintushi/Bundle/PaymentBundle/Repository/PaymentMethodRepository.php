@@ -13,7 +13,7 @@ class PaymentMethodRepository extends EntityRepository implements PaymentMethodR
         parent::__construct($registry, PaymentMethod::class);
     }
 
-    public function findActivePaymentMethods()
+    public function createActivePaymentMethodsQueryBuilder()
     {
         $qb = $this->createQueryBuilder('o')
         ;
@@ -21,6 +21,6 @@ class PaymentMethodRepository extends EntityRepository implements PaymentMethodR
         $this->applyCriteria($qb, ['enabled' => true]);
         $this->applySorting($qb, ['position' => 'asc']);
 
-        return $qb->getQuery()->getResult();
+        return $qb;
     }
 }

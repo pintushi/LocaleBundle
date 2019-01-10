@@ -15,7 +15,7 @@ class ShippingMethodRepository extends EntityRepository implements ShippingMetho
         parent::__construct($registry, ShippingMethod::class);
     }
 
-    public function findActiveShippingMethods()
+    public function createActiveShippingMethodsQueryBuilder()
     {
         $qb = $this->createQueryBuilder('o')
         ;
@@ -23,6 +23,6 @@ class ShippingMethodRepository extends EntityRepository implements ShippingMetho
         $this->applyCriteria($qb, ['enabled' => true]);
         $this->applySorting($qb, ['position' => 'asc']);
 
-        return $qb->getQuery()->getResult();
+        return $qb;
     }
 }
