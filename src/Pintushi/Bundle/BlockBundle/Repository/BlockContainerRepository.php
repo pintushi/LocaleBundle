@@ -23,6 +23,9 @@ class BlockContainerRepository extends ServiceEntityRepository
             ->setParameter('name', $name)
         ;
 
-        return $queryBuilder->getQuery()->getOneOrNullResult();
+        return $queryBuilder
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
     }
 }

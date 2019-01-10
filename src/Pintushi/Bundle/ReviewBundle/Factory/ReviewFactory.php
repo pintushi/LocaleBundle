@@ -7,9 +7,8 @@ namespace Pintushi\Bundle\ReviewBundle\Factory;
 use Pintushi\Bundle\ReviewBundle\Entity\ReviewableInterface;
 use Pintushi\Bundle\ReviewBundle\Entity\ReviewerInterface;
 use Pintushi\Bundle\ReviewBundle\Entity\ReviewInterface;
-use Videni\Bundle\RestBundle\Factory\FactoryInterface;
 
-class ReviewFactory implements ReviewFactoryInterface, FactoryInterface
+class ReviewFactory implements ReviewFactoryInterface
 {
     /**
      * @var FactoryInterface
@@ -29,7 +28,7 @@ class ReviewFactory implements ReviewFactoryInterface, FactoryInterface
      */
     public function createNew(): ReviewInterface
     {
-        return $this->factory->createNew();
+        return new $this->class();
     }
 
     /**
@@ -38,7 +37,7 @@ class ReviewFactory implements ReviewFactoryInterface, FactoryInterface
     public function createForSubject(ReviewableInterface $subject): ReviewInterface
     {
         /** @var ReviewInterface $review */
-        $review = $this->factory->createNew();
+        $review = $this->createNew();
         $review->setReviewSubject($subject);
 
         return $review;

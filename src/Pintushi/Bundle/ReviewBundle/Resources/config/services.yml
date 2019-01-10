@@ -11,5 +11,6 @@ services:
         resource: '../../{Repository,DataFixtures,Command,Factory}'
 
     Pintushi\Bundle\ReviewBundle\Factory\ReviewFactory:
+        public: true
         arguments:
             - 'Pintushi\Bundle\ReviewBundle\Entity\OrderReview'

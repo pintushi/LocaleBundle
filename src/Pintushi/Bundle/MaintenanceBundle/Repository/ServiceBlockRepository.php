@@ -15,7 +15,7 @@ class ServiceBlockRepository extends EntityRepository
         parent::__construct($registry, ServiceBlock::class);
     }
 
-    public function findActiveServiceBlocks()
+    public function createActiveQueryBuilder()
     {
         $queryBuilder = $this->createQueryBuilder('o');
         $queryBuilder
@@ -24,6 +24,6 @@ class ServiceBlockRepository extends EntityRepository
             ->andWhere('o.enabled=true')
             ->orderBy('o.position', 'asc');
 
-        return $queryBuilder->getQuery()->getResult();
+        return $queryBuilder;
     }
 }

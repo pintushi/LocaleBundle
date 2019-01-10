@@ -13,7 +13,7 @@ class ServiceGroupRepository extends EntityRepository
         parent::__construct($registry, ServiceGroup::class);
     }
 
-    public function findActiveGroups()
+    public function createActiveServiceGroupQueryBuilder()
     {
         $queryBuilder = $this->createQueryBuilder('o');
         $queryBuilder
@@ -24,6 +24,6 @@ class ServiceGroupRepository extends EntityRepository
             ->orderBy('s.position', 'asc')
             ;
 
-        return $queryBuilder->getQuery()->getResult();
+        return $queryBuilder;
     }
 }
