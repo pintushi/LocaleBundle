@@ -39,20 +39,15 @@ final class FixedDiscountPromotionActionCommand extends DiscountPromotionActionC
             return false;
         }
 
-        $channelId = $subject->getChannel()->getId();
-        if (!isset($configuration[$channelId])) {
-            return false;
-        }
-
         try {
-            $this->isConfigurationValid($configuration[$channelId]);
+            $this->isConfigurationValid($configuration);
         } catch (\InvalidArgumentException $exception) {
             return false;
         }
 
         $promotionAmount = $this->calculateAdjustmentAmount(
             $subject->getPromotionSubjectTotal(),
-            $configuration[$channelId]['amount']
+            $configuration['amount']
         );
 
         if (0 === $promotionAmount) {

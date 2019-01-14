@@ -335,7 +335,7 @@ class OrderItem implements OrderItemInterface
     /**
      * @return mixed
      */
-    public function getService(): ServiceInterface
+    public function getService(): ?ServiceInterface
     {
         return $this->service;
     }

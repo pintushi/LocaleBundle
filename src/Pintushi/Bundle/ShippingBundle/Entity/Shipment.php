@@ -72,7 +72,7 @@ class Shipment implements ShipmentInterface
     /**
      * {@inheritdoc}
      */
-    public function getMethod(): ShippingMethodInterface
+    public function getMethod(): ?ShippingMethodInterface
     {
         return $this->method;
     }

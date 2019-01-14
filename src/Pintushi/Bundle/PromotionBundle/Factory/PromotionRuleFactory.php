@@ -24,12 +24,12 @@ class PromotionRuleFactory implements PromotionRuleFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createItemTotal(string $channelId, int $amount): PromotionRuleInterface
+    public function createItemTotal(int $amount): PromotionRuleInterface
     {
         /** @var PromotionRuleInterface $rule */
         $rule = $this->createNew();
         $rule->setType(ItemTotalRuleChecker::TYPE);
-        $rule->setConfiguration([$channelId => ['amount' => $amount]]);
+        $rule->setConfiguration(['amount' => $amount]);
 
         return $rule;
     }

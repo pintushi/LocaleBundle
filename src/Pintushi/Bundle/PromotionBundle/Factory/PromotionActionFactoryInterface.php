@@ -6,7 +6,7 @@ use Pintushi\Bundle\PromotionBundle\Entity\PromotionActionInterface;
 
 interface PromotionActionFactoryInterface
 {
-    public function createFixedDiscount(int $amount, string $channelId): PromotionActionInterface;
+    public function createFixedDiscount(int $amount): PromotionActionInterface;
 
     public function createPercentageDiscount(float $percentage): PromotionActionInterface;
 

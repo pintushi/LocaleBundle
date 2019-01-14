@@ -8,6 +8,7 @@ use Pintushi\Bundle\OrderBundle\Entity\Order;
 use Pintushi\Component\Order\Repository\OrderRepositoryInterface;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Videni\Bundle\RestBundle\Doctrine\ORM\ServiceEntityRepository as EntityRepository;
+use Pintushi\Bundle\CustomerBundle\Entity\CustomerInterface;
 
 class OrderRepository extends EntityRepository implements OrderRepositoryInterface
 {
@@ -118,5 +119,17 @@ class OrderRepository extends EntityRepository implements OrderRepositoryInterfa
             ->getQuery()
             ->getResult()
         ;
+    }
+
+     public function createCustomerQueryBuilder(CustomerInterface $customer)
+    {
+        $qb = $this->createQueryBuilder('o');
+
+        $qb
+           ->andWhere('IDENTITY(o.customer)=:customerId')
+           ->setParameter('customerId', $customer->getId())
+        ;
+
+        return $qb;
     }
 }

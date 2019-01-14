@@ -1,8 +1,0 @@
-Pintushi\Bundle\PromotionBundle\Entity\PromotionRule:
-    attributes:
-        id:
-            groups: [Detailed]
-        type:
-            groups: [Detailed]
-        configuration:
-            groups: [Detailed]

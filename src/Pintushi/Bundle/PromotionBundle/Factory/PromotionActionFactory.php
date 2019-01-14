@@ -23,12 +23,12 @@ class PromotionActionFactory implements PromotionActionFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createFixedDiscount(int $amount, string $channelId): PromotionActionInterface
+    public function createFixedDiscount(int $amount): PromotionActionInterface
     {
         return $this->createAction(
             FixedDiscountPromotionActionCommand::TYPE,
             [
-                $channelId => ['amount' => $amount],
+               'amount' => $amount,
             ]
         );
     }

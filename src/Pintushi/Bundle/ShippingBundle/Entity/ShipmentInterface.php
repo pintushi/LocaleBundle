@@ -15,7 +15,7 @@ interface ShipmentInterface extends TimestampableInterface, ShippingSubjectInter
 
     public function setState(string $state): void;
 
-    public function getMethod(): ShippingMethodInterface;
+    public function getMethod(): ?ShippingMethodInterface;
 
     public function setMethod(ShippingMethodInterface $method = null): void;
 
