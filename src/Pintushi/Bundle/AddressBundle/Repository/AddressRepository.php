@@ -16,7 +16,7 @@ class AddressRepository extends ServiceEntityRepository
 
     public function getCustomerAddressesCount(CustomerInterface $customer)
     {
-        $qb = $this->createQueryBuilder($customer);
+        $qb = $this->createCustomerQueryBuilder($customer);
 
         return
             $qb->select('count(o.id)')
