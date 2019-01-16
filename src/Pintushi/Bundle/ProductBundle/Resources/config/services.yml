@@ -14,8 +14,4 @@ services:
             - '@pintushi.inventory.order_inventory_operator.inner'
             - '@doctrine.orm.entity_manager'
 
-    Pintushi\Bundle\ProductBundle\Orm\Extension\ProductQueryBuilderExtension:
-        tags:
-            - { name: api_platform.doctrine.orm.query_extension.collection, priority: 9 }
-
     Pintushi\Bundle\ProductBundle\Repository\ProductRepositoryInterface: '@Pintushi\Bundle\ProductBundle\Repository\ProductRepository'

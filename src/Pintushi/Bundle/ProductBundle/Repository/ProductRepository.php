@@ -44,11 +44,12 @@ class ProductRepository extends ServiceEntityRepository implements ProductReposi
     /**
      * {@inheritdoc}
      */
-    public function addTrackedQuery($queryBuilder)
+    public function createInventoryQueryBuilder()
     {
-        $queryBuilder
-            ->andWhere('o.tracked = true')
-        ;
+        $qb = $this->createQueryBuilder('o');
+        $qb->andWhere('o.tracked = true');
+
+        return $qb;
     }
 
     public function findBySeviceAndAutoSeries(ServiceInterface $service, CarModel $carModel): ArrayCollection
