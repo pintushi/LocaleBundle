@@ -8,6 +8,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Pintushi\Bundle\AddressBundle\Validator\Constraints\AddressConstraint;
 use Symfony\Component\Form\AbstractType;
+use Pintushi\Bundle\AddressBundle\Entity\Address;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AddressType extends AbstractType
 {
@@ -39,5 +41,14 @@ class AddressType extends AbstractType
                 'label' => 'pintushi.form.address.street'
             ])
             ->addEventSubscriber($this->addressTypeSubscriber);
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+         $resolver->setDefaults(
+            [
+                'data_class' => Address::class
+            ]
+        );
     }
 }

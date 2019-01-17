@@ -13,6 +13,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Pintushi\Bundle\PromotionBundle\Form\Type\AbstractResourceType;
+use Pintushi\Bundle\ShippingBundle\Entity\ShippingMethod;
 
 final class ShippingMethodType extends AbstractResourceType
 {
@@ -48,14 +49,6 @@ final class ShippingMethodType extends AbstractResourceType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
-    {
-        return 'pintushi_shipping_method';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function configureOptions(OptionsResolver $resolver)
     {
         parent::configureOptions($resolver);
@@ -65,6 +58,7 @@ final class ShippingMethodType extends AbstractResourceType
                 'label' => function (Options $options) {
                     return 'pintushi.form.shipping_method.' . $options['type'];
                 },
+                'data_class' => ShippingMethod::class
             ])
             ->setRequired('type')
             ->setAllowedTypes('type', 'string')
