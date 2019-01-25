@@ -20,9 +20,9 @@ use Pintushi\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
  *          "category"="promotion",
  *      },
  *    "ownership"={
- *              "owner_type"="ORGANIZATION",
- *              "owner_field_name"="organization",
- *              "owner_column_name"="organization_id",
+ *         "owner_type"="ORGANIZATION",
+ *         "owner_field_name"="organization",
+ *         "owner_column_name"="organization_id",
  *     },
  *  }
  * )
