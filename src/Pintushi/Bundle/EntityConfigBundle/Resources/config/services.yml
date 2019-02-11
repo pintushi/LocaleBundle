@@ -28,6 +28,8 @@ services:
             - '@pintushi_entity_config.config_model_manager'
             - '@pintushi_entity_config.cache'
 
+    Pintushi\Bundle\EntityConfigBundle\Config\ConfigManager: '@pintushi_entity_config.config_manager'
+
     pintushi_entity_config.config_model_lock_object:
         class: Pintushi\Bundle\EntityConfigBundle\Config\LockObject
 

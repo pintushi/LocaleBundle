@@ -3,11 +3,8 @@
 namespace Pintushi\Bundle\EntityConfigBundle\Config;
 
 use Doctrine\ORM\EntityManager;
-
 use Metadata\MetadataFactory;
-
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-
 use Pintushi\Bundle\EntityConfigBundle\Config\Id\ConfigIdInterface;
 use Pintushi\Bundle\EntityConfigBundle\Config\Id\EntityConfigId;
 use Pintushi\Bundle\EntityConfigBundle\Config\Id\FieldConfigId;
