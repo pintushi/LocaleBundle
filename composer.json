@@ -67,6 +67,16 @@
             "type": "vcs"
         }
     ],
+    "replace": {
+        "pintushi/security-bundle": "self.version",
+        "pintushi/organization-bundle": "self.version",
+        "pintushi/dependency-injection": "self.version",
+        "pintushi/php-utils": "self.version",
+        "pintushi/user-bundle": "self.version",
+        "pintushi/entity-config-bundle": "self.version",
+        "pintushi/form": "self.version",
+        "pintushi/log": "self.version"
+    },
     "autoload": {
         "psr-4": {
             "Pintushi\\Bundle\\": "src/Pintushi/Bundle/",

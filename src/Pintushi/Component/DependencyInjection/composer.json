@@ -1,0 +1,20 @@
+{
+    "name": "pintushi/dependency-injection",
+    "type": "symfony-bundle",
+    "description": "Pintushi DependencyInjection Component",
+    "keywords": ["DependencyInjection"],
+    "license": "MIT",
+    "require": {
+        "php": "7.1.*",
+        "symfony/dependency-injection": "^4.0"
+    },
+    "autoload": {
+        "psr-0": { "Pintushi\\Component\\DependencyInjection": "" }
+    },
+    "target-dir": "Pintushi/Component/DependencyInjection",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

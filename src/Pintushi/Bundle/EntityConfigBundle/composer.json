@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": ">=5.6",
-        "symfony/symfony": "^3.2",
+        "symfony/symfony": "^4.0",
         "oro/config": "^1.0@dev"
     },
     "autoload": {
