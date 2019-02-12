@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Pintushi\Bundle\OrganizationBundle\Entity\OrganizationAwareInterface;
 use Pintushi\Bundle\OrganizationBundle\Entity\Ownership\OrganizationAwareTrait;
 use Pintushi\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
+use Videni\Bundle\RestBundle\Model\ResourceInterface;
 
 /**
  * @Config(
@@ -24,7 +25,7 @@ use Pintushi\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
  *  }
  * )
  */
-class Taxon implements TaxonInterface, OrganizationAwareInterface
+class Taxon implements TaxonInterface, OrganizationAwareInterface, ResourceInterface
 {
     use OrganizationAwareTrait;
 
