@@ -1,6 +1,6 @@
 <?php
 
-namespace Pintushi\Bundle\SearchBundle\Provider;
+namespace Pintushi\Bundle\EntityBundle\Provider;
 
 use Pintushi\Bundle\LocaleBundle\Entity\Localization;
 

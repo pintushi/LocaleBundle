@@ -1,0 +1,62 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Pintushi\Bundle\EntityBundle\:
+        resource: '../../{Repository,DataFixtures,Command,Validator,Controller}'
+
+    Pintushi\Bundle\EntityBundle\Provider\EntityNameResolver:
+        arguments:
+            - '%pintushi_entity.entity_name_format.default%'
+            - '%pintushi_entity.entity_name_formats%'
+
+    Pintushi\Bundle\EntityBundle\ORM\DoctrineHelper: ~
+
+    pintushi_entity.doctrine_helper:
+        alias: Pintushi\Bundle\EntityBundle\ORM\DoctrineHelper
+
+    Pintushi\Bundle\EntityBundle\ORM\EntityAliasResolver:
+        arguments:
+            - '@Pintushi\Bundle\EntityBundle\Provider\EntityAliasLoader'
+            - '@pintushi_entity.entity_alias_cache'
+            - '@logger'
+
+    pintushi_entity.entity_alias_cache:
+        public: false
+        autowire: false
+        autoconfigure: false
+        parent: doctrine_cache.abstract.chain
+        calls:
+            - [ setNamespace, [ 'pintushi_entity_aliases' ] ]
+
+    Pintushi\Bundle\EntityBundle\Provider\EntityAliasLoader:
+        public: false
+        lazy: true
+
+    Pintushi\Bundle\EntityBundle\ORM\ManagerBag: ~
+
+    Pintushi\Bundle\EntityBundle\ORM\OrmEntityClassProvider:
+        public: false
+        arguments:
+            - '@pintushi_entity.doctrine_helper'
+            - '@Pintushi\Bundle\EntityBundle\ORM\ManagerBag'
+        tags:
+            - { name: pintushi_entity.class_provider }
+
+    Pintushi\Bundle\EntityBundle\Provider\EntityAliasConfigBag:
+        public: false
+        arguments:
+            - '%pintushi_entity.entity_aliases%'
+            - '%pintushi_entity.entity_alias_exclusions%'
+
+    Pintushi\Bundle\EntityBundle\Provider\EntityAliasProvider:
+        public: false
+        arguments:
+            - '@Pintushi\Bundle\EntityBundle\Provider\EntityAliasConfigBag'
+        tags:
+            - { name: pintushi_entity.alias_provider, priority: -100 }
+            - { name: pintushi_entity.class_provider }
+
+    Pintushi\Bundle\EntityBundle\Tools\EntityClassNameHelper: ~

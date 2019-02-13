@@ -1,6 +1,6 @@
 <?php
 
-namespace Pintushi\Bundle\SearchBundle\Resolver;
+namespace Pintushi\Bundle\EntityBundle\Resolver;
 
 interface EntityTitleResolverInterface
 {

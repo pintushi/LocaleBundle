@@ -1,6 +1,6 @@
 <?php
 
-namespace Pintushi\Bundle\SearchBundle\Provider;
+namespace Pintushi\Bundle\EntityBundle\Provider;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
