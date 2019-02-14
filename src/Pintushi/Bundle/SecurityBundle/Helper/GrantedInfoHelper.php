@@ -1,6 +1,6 @@
 <?php
 
-namespace Pintushi\Bundle\CoreBundle\Serializer;
+namespace Pintushi\Bundle\SecurityBundle\Helper;
 
 use Pintushi\Bundle\SecurityBundle\Acl\Domain\OneShotIsGrantedObserver;
 use Pintushi\Bundle\SecurityBundle\Acl\Voter\AclVoter;
@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Pintushi\Bundle\SecurityBundle\Authentication\TokenAccessor;
 use Pintushi\Bundle\OrganizationBundle\Entity\BusinessUnit;
 
-class GrantedInfoAccessor
+class GrantedInfoHelper
 {
     protected $cache = [];
     protected $aclVoter;
