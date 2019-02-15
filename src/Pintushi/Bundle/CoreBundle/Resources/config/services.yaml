@@ -23,14 +23,6 @@ services:
         tags:
             - { name: api_platform.data_persister, priority: 30 }
 
-    pintushi.jwt_authentication.handler.authentication_success:
-        class: Pintushi\Bundle\CoreBundle\Security\Http\Authentication\AuthenticationSuccessHandler
-        arguments:
-            - '@lexik_jwt_authentication.jwt_manager'
-            - '@event_dispatcher'
-        tags:
-            - {  name: "monolog.logger", channel: "security" }
-
     Pintushi\Bundle\CoreBundle\Validator\Constraints\EntityOwnedByOrganizationValidator:
         arguments:
            - '@pintushi_security.owner.ownership_metadata_provider'
