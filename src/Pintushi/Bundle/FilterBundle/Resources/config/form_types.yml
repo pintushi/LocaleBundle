@@ -1,0 +1,134 @@
+parameters:
+    pintushi_filter.form.event_subscriber.date.class: Pintushi\Bundle\FilterBundle\Form\EventListener\DateFilterSubscriber
+
+    pintushi_filter.form.type.date_range.class: Pintushi\Bundle\FilterBundle\Form\Type\DateRangeType
+    pintushi_filter.form.type.datetime_range.class: Pintushi\Bundle\FilterBundle\Form\Type\DateTimeRangeType
+
+    pintushi_filter.form.type.filter.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\FilterType
+    pintushi_filter.form.type.filter.choice.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\ChoiceFilterType
+    pintushi_filter.form.type.filter.text.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\TextFilterType
+    pintushi_filter.form.type.filter.number.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\NumberFilterType
+    pintushi_filter.form.type.filter.number_range.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\NumberRangeFilterType
+    pintushi_filter.form.type.filter.date_range.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\DateRangeFilterType
+    pintushi_filter.form.type.filter.datetime_range.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\DateTimeRangeFilterType
+    pintushi_filter.form.type.filter.boolean.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\BooleanFilterType
+    pintushi_filter.form.type.filter.entity.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\EntityFilterType
+    pintushi_filter.form.type.filter.selectrow.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\SelectRowFilterType
+    pintushi_filter.form.type.filter.many_to_many.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\ManyToManyFilterType
+    pintushi_filter.form.type.filter.choice_tree.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\ChoiceTreeFilterType
+    pintushi_filter.type.enum_filter.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\EnumFilterType
+    pintushi_filter.type.dictionary_filter.class: Pintushi\Bundle\FilterBundle\Form\Type\Filter\DictionaryFilterType
+
+services:
+    pintushi_filter.form.event_subscriber.date:
+        class: '%pintushi_filter.form.event_subscriber.date.class%'
+        arguments:
+            - '@pintushi_filter.utils.date_filter_modifier'
+            - '@pintushi_locale.settings'
+
+    pintushi_filter.form.type.date_range:
+        class: '%pintushi_filter.form.type.date_range.class%'
+        arguments: ["@pintushi_locale.settings"]
+        tags:
+            - { name: form.type, alias: oro_type_date_range }
+
+    pintushi_filter.form.type.datetime_range:
+        class: '%pintushi_filter.form.type.datetime_range.class%'
+        arguments: ["@pintushi_locale.settings"]
+        tags:
+            - { name: form.type, alias: oro_type_datetime_range }
+
+    pintushi_filter.form.type.filter:
+        class: '%pintushi_filter.form.type.filter.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_filter }
+
+    pintushi_filter.form.type.filter.choice:
+        class: '%pintushi_filter.form.type.filter.choice.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_choice_filter }
+
+    pintushi_filter.form.type.filter.text:
+        class: '%pintushi_filter.form.type.filter.text.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_text_filter }
+
+    pintushi_filter.form.type.filter.number:
+        class: '%pintushi_filter.form.type.filter.number.class%'
+        arguments:
+            - '@translator'
+            - '@pintushi_locale.settings'
+        tags:
+            - { name: form.type, alias: oro_type_number_filter }
+
+    pintushi_filter.form.type.filter.number_range:
+        class: '%pintushi_filter.form.type.filter.number_range.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_number_range_filter }
+
+    pintushi_filter.form.type.filter.date_range:
+        class: '%pintushi_filter.form.type.filter.date_range.class%'
+        arguments:
+            - '@translator'
+            - '@pintushi_filter.provider.datemodifierprovider'
+            - '@pintushi_filter.form.event_subscriber.date'
+        tags:
+            - { name: form.type, alias: oro_type_date_range_filter }
+
+    pintushi_filter.form.type.filter.datetime_range:
+        class: '%pintushi_filter.form.type.filter.datetime_range.class%'
+        arguments:
+            - '@translator'
+            - '@pintushi_filter.provider.datemodifierprovider'
+            - '@pintushi_filter.form.event_subscriber.date'
+        tags:
+            - { name: form.type, alias: oro_type_datetime_range_filter }
+
+    pintushi_filter.form.type.filter.boolean:
+        class: '%pintushi_filter.form.type.filter.boolean.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_boolean_filter }
+
+    pintushi_filter.form.type.filter.entity:
+        class: '%pintushi_filter.form.type.filter.entity.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_entity_filter }
+
+    pintushi_filter.form.type.filter.selectrow:
+        class: '%pintushi_filter.form.type.filter.selectrow.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_selectrow_filter }
+
+    pintushi_filter.form.type.filter.many_to_many:
+        class: '%pintushi_filter.form.type.filter.many_to_many.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_many_to_many_filter }
+
+    pintushi_filter.form.type.filter.choice_tree:
+        class: '%pintushi_filter.form.type.filter.choice_tree.class%'
+        arguments: ["@translator"]
+        tags:
+            - { name: form.type, alias: oro_type_choice_tree_filter }
+
+    pintushi_filter.type.enum_filter:
+        class: '%pintushi_filter.type.enum_filter.class%'
+        arguments:
+            - '@translator'
+            - '@Pintushi\Bundle\EntityBundle\ORM\DoctrineHelper'
+        tags:
+            - { name: form.type, alias: oro_enum_filter }
+
+    pintushi_filter.type.dictionary_filter:
+        class: '%pintushi_filter.type.dictionary_filter.class%'
+        arguments:
+            - '@translator'
+        tags:
+            - { name: form.type, alias: oro_type_dictionary_filter }

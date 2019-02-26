@@ -3,7 +3,7 @@
 namespace Pintushi\Bundle\NavigationBundle\Validator\Constraints;
 
 use Knp\Menu\ItemInterface;
-use Oro\Bundle\LocaleBundle\Helper\LocalizationHelper;
+use Pintushi\Bundle\LocaleBundle\Helper\LocalizationHelper;
 use Pintushi\Bundle\NavigationBundle\Entity\MenuUpdateInterface;
 use Pintushi\Bundle\NavigationBundle\Provider\BuilderChainProvider;
 use Pintushi\Bundle\NavigationBundle\Provider\MenuUpdateProvider;

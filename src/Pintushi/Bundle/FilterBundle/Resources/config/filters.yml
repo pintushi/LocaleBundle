@@ -1,0 +1,198 @@
+parameters:
+    pintushi_filter.filter_utility.class:              Pintushi\Bundle\FilterBundle\Filter\FilterUtility
+    pintushi_filter.string_filter.class:               Pintushi\Bundle\FilterBundle\Filter\StringFilter
+    pintushi_filter.select_row_filter.class:           Pintushi\Bundle\FilterBundle\Filter\SelectRowFilter
+    pintushi_filter.number_filter.class:               Pintushi\Bundle\FilterBundle\Filter\NumberFilter
+    pintushi_filter.number_range_filter.class:         Pintushi\Bundle\FilterBundle\Filter\NumberRangeFilter
+    pintushi_filter.percent_filter.class:              Pintushi\Bundle\FilterBundle\Filter\PercentFilter
+    pintushi_filter.currency_filter.class:             Pintushi\Bundle\FilterBundle\Filter\CurrencyFilter
+    pintushi_filter.choice_filter.class:               Pintushi\Bundle\FilterBundle\Filter\ChoiceFilter
+    pintushi_filter.single_choice_filter.class:        Pintushi\Bundle\FilterBundle\Filter\SingleChoiceFilter
+    pintushi_filter.entity_filter.class:               Pintushi\Bundle\FilterBundle\Filter\EntityFilter
+    pintushi_filter.boolean_filter.class:              Pintushi\Bundle\FilterBundle\Filter\BooleanFilter
+    pintushi_filter.date_filter_utility.class:         Pintushi\Bundle\FilterBundle\Filter\DateFilterUtility
+    pintushi_filter.date_range_filter.class:           Pintushi\Bundle\FilterBundle\Filter\DateRangeFilter
+    pintushi_filter.datetime_range_filter.class:       Pintushi\Bundle\FilterBundle\Filter\DateTimeRangeFilter
+    pintushi_filter.many_to_many_filter.class:         Pintushi\Bundle\FilterBundle\Filter\ManyToManyFilter
+    pintushi_filter.choice_tree_filter.class:          Pintushi\Bundle\FilterBundle\Filter\ChoiceTreeFilter
+    pintushi_filter.dictionary_filter.class:           Pintushi\Bundle\FilterBundle\Filter\DictionaryFilter
+    pintushi_filter.enum_filter.class:                 Pintushi\Bundle\FilterBundle\Filter\EnumFilter
+    pintushi_filter.multi_enum_filter.class:           Pintushi\Bundle\FilterBundle\Filter\MultiEnumFilter
+
+services:
+    pintushi_filter.filter_utility:
+        class: '%pintushi_filter.filter_utility.class%'
+
+    pintushi_filter.string_filter:
+        class: '%pintushi_filter.string_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: string, datasource: orm }
+
+    pintushi_filter.select_row_filter:
+        class: '%pintushi_filter.select_row_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: selectrow, datasource: orm }
+
+    pintushi_filter.number_filter:
+        class: '%pintushi_filter.number_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: number, datasource: orm }
+
+    pintushi_filter.number_range_filter:
+        class: '%pintushi_filter.number_range_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: number-range, datasource: orm }
+
+    pintushi_filter.percent_filter:
+        class: '%pintushi_filter.percent_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: percent, datasource: orm }
+
+    pintushi_filter.currency_filter:
+        class: '%pintushi_filter.currency_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: currency, datasource: orm }
+
+    pintushi_filter.choice_filter:
+        class: '%pintushi_filter.choice_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: choice, datasource: orm }
+
+    pintushi_filter.single_choice_filter:
+        class: '%pintushi_filter.single_choice_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: single_choice, datasource: orm }
+
+    pintushi_filter.entity_filter:
+        class: '%pintushi_filter.entity_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: entity, datasource: orm }
+
+    pintushi_filter.boolean_filter:
+        class: '%pintushi_filter.boolean_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        calls:
+            - [setTranslator, ['@translator']]
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: boolean, datasource: orm }
+
+    pintushi_filter.duplicate_filter:
+        class: Pintushi\Bundle\FilterBundle\Filter\DuplicateFilter
+        parent: pintushi_filter.boolean_filter
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: duplicate, datasource: orm }
+
+    pintushi_filter.date_filter_utility:
+        class: '%pintushi_filter.date_filter_utility.class%'
+        arguments:
+            - '@pintushi_locale.settings'
+            - '@pintushi_filter.expression.date.compiler'
+
+    pintushi_filter.date_range_filter:
+        class: '%pintushi_filter.date_range_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+            - '@pintushi_filter.date_filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: date, datasource: orm }
+
+    pintushi_filter.datetime_range_filter:
+        class: '%pintushi_filter.datetime_range_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+            - '@pintushi_filter.date_filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: datetime, datasource: orm }
+
+    pintushi_filter.many_to_many_filter:
+        class: '%pintushi_filter.many_to_many_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: many-to-many, datasource: orm }
+
+    pintushi_filter.choice_tree_filter:
+        class: '%pintushi_filter.choice_tree_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+            - '@doctrine'
+            - '@router'
+            - '@event_dispatcher'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: choice-tree, datasource: orm }
+
+    pintushi_filter.dictionary_filter:
+        class: '%pintushi_filter.dictionary_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: dictionary, datasource: orm }
+
+    # pintushi_filter.enum_filter:
+    #     class: '%pintushi_filter.enum_filter.class%'
+    #     arguments:
+    #         - '@form.factory'
+    #         - '@pintushi_filter.filter_utility'
+    #         - '@oro_entity.manager.dictionary.api'
+    #     tags:
+    #         - { name: pintushi_filter.extension.orm_filter.filter, type: enum, datasource: orm }
+
+    pintushi_filter.multi_enum_filter:
+        class: '%pintushi_filter.multi_enum_filter.class%'
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+            - '@pintushi_filter.builder.many_relation'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: multi_enum, datasource: orm }
+
+    pintushi_filter.date_grouping_filter:
+        class: Pintushi\Bundle\FilterBundle\Filter\DateGroupingFilter
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+            - '@doctrine'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: date_grouping, datasource: orm }
+
+    pintushi_filter.skip_empty_periods_filter:
+        class: Pintushi\Bundle\FilterBundle\Filter\SkipEmptyPeriodsFilter
+        arguments:
+            - '@form.factory'
+            - '@pintushi_filter.filter_utility'
+        tags:
+            - { name: pintushi_filter.extension.orm_filter.filter, type: skip_empty_periods, datasource: orm }

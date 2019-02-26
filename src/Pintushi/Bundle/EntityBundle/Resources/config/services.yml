@@ -14,6 +14,10 @@ services:
 
     Pintushi\Bundle\EntityBundle\ORM\DoctrineHelper: ~
 
+    Pintushi\Bundle\EntityBundle\ORM\EntityClassResolver: ~
+
+    pintushi_entity.orm.entity_class_resolver: '@Pintushi\Bundle\EntityBundle\ORM\EntityClassResolver'
+
     pintushi_entity.doctrine_helper:
         alias: Pintushi\Bundle\EntityBundle\ORM\DoctrineHelper
 
@@ -60,3 +64,9 @@ services:
             - { name: pintushi_entity.class_provider }
 
     Pintushi\Bundle\EntityBundle\Tools\EntityClassNameHelper: ~
+
+    pintushi_entity.entity_class_name_helper: '@Pintushi\Bundle\EntityBundle\Tools\EntityClassNameHelper'
+
+    Oro\Component\DoctrineUtils\ORM\QueryHintResolver: ~
+
+    pintushi_entity.query_hint_resolver: '@Oro\Component\DoctrineUtils\ORM\QueryHintResolver'

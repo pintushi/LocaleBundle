@@ -4,7 +4,7 @@ namespace Pintushi\Bundle\CoreBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Pintushi\Component\DependencyInjection\Compiler\ServiceLinkCompilerPass;
+use Oro\Component\DependencyInjection\Compiler\ServiceLinkCompilerPass;
 
 use Pintushi\Bundle\CoreBundle\DependencyInjection\Compiler\AppPass;
 

@@ -3,8 +3,8 @@
 namespace Pintushi\Bundle\NavigationBundle\Menu\Helper;
 
 use Doctrine\Common\Collections\Collection;
-use Oro\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
-use Oro\Bundle\LocaleBundle\Helper\LocalizationHelper;
+use Pintushi\Bundle\LocaleBundle\Entity\LocalizedFallbackValue;
+use Pintushi\Bundle\LocaleBundle\Helper\LocalizationHelper;
 use Pintushi\Bundle\NavigationBundle\Entity\MenuUpdateInterface;
 use Oro\Component\PropertyAccess\PropertyAccessor;
 use Symfony\Component\PropertyAccess\PropertyAccess;

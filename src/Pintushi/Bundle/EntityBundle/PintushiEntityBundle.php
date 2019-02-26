@@ -17,5 +17,6 @@ class PintushiEntityBundle extends Bundle
 
         $container->addCompilerPass(new Compiler\EntityNameProviderPass());
         $container->addCompilerPass(new Compiler\EntityAliasProviderPass());
+        $container->addCompilerPass(new Compiler\QueryHintResolverPass());
     }
 }

@@ -3,7 +3,7 @@
 namespace Pintushi\Bundle\NavigationBundle\Builder;
 
 use Knp\Menu\ItemInterface;
-use Oro\Bundle\LocaleBundle\Helper\LocalizationHelper;
+use Pintushi\Bundle\LocaleBundle\Helper\LocalizationHelper;
 use Pintushi\Bundle\NavigationBundle\Exception\MaxNestingLevelExceededException;
 use Pintushi\Bundle\NavigationBundle\Menu\BuilderInterface;
 use Pintushi\Bundle\NavigationBundle\Provider\MenuUpdateProviderInterface;
