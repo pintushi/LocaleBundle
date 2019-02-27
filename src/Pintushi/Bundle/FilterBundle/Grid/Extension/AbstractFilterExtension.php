@@ -11,7 +11,7 @@ use Pintushi\Bundle\GridBundle\Provider\ConfigurationProvider;
 use Pintushi\Bundle\GridBundle\Provider\State\DatagridStateProviderInterface;
 use Pintushi\Bundle\FilterBundle\Filter\FilterInterface;
 use Pintushi\Bundle\FilterBundle\Filter\FilterUtility;
-use Oro\Component\PhpUtils\ArrayUtil;
+use Pintushi\Component\PhpUtils\ArrayUtil;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 

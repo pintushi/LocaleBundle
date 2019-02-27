@@ -8,7 +8,7 @@ use Pintushi\Bundle\FilterBundle\Datasource\FilterDatasourceAdapterInterface;
 use Pintushi\Bundle\FilterBundle\Datasource\Orm\OrmFilterDatasourceAdapter;
 use Oro\Component\DoctrineUtils\ORM\DqlUtil;
 use Oro\Component\DoctrineUtils\ORM\QueryBuilderUtil;
-use Oro\Component\PhpUtils\ArrayUtil;
+use Pintushi\Component\PhpUtils\ArrayUtil;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormFactoryInterface;
 

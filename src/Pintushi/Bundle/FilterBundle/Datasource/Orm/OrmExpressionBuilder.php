@@ -194,7 +194,7 @@ class OrmExpressionBuilder implements ExpressionBuilderInterface
          *
          * Also we cannot use NOT (x LIKE y) due a bug in AclHelper, so we have to use NOT LIKE operator.
          * Here is the error: Notice: Undefined property: Doctrine\ORM\Query\AST\ConditionalFactor::$conditionalTerms
-         *      in C:\www\home\oro\crm-dev\src\Oro\src\Oro\Bundle\SecurityBundle\ORM\Walker\AclHelper.php on line 119
+         *      in C:\www\home\oro\crm-dev\src\Oro\src\Pintushi\Bundle\SecurityBundle\ORM\Walker\AclHelper.php on line 119
          * The problem can be reproduced, for example, on System > Data Audit grid, just try to apply
          * 'does not contain' filer to 'author' column
          * Make sure that NOT (x LIKE y) works before use it; otherwise, use NOT LIKE

@@ -9,7 +9,7 @@ use Pintushi\Bundle\GridBundle\Provider\State\AbstractStateProvider;
 use Pintushi\Bundle\GridBundle\Tools\DatagridParametersHelper;
 use Pintushi\Bundle\FilterBundle\Grid\Extension\AbstractFilterExtension;
 use Pintushi\Bundle\FilterBundle\Grid\Extension\Configuration as FilterConfiguration;
-use Oro\Bundle\SecurityBundle\Authentication\TokenAccessorInterface;
+use Pintushi\Bundle\SecurityBundle\Authentication\TokenAccessorInterface;
 
 /**
  * Provides request- and user-specific datagrid state for filters component.

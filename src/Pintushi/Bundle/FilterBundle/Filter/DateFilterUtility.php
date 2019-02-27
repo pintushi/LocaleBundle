@@ -7,7 +7,7 @@ use Pintushi\Bundle\FilterBundle\Expression\Date\ExpressionResult;
 use Pintushi\Bundle\FilterBundle\Form\Type\Filter\DateRangeFilterType;
 use Pintushi\Bundle\FilterBundle\Provider\DateModifierInterface;
 use Pintushi\Bundle\LocaleBundle\Model\LocaleSettings;
-use Oro\Component\PhpUtils\ArrayUtil;
+use Pintushi\Component\PhpUtils\ArrayUtil;
 
 class DateFilterUtility
 {
