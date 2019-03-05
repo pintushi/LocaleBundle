@@ -94,8 +94,6 @@ abstract class AbstractFilterExtension extends AbstractExtension
 
         $this->updateState($filters, $config, $metadata);
         $this->updateMetadata($filters, $config, $metadata);
-
-        $metadata->offsetAddToArray(MetadataObject::REQUIRED_MODULES_KEY, ['orofilter/js/datafilter-builder']);
     }
 
     /**

@@ -15,6 +15,8 @@ class MetadataFactory extends  MetadataFactoryInterface
 
     public function getMetadataForClass($className)
     {
+        $this->entityConfig->getFields();
+
 
     }
 }
