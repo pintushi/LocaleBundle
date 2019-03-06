@@ -1,24 +1,20 @@
 {
-    "name": "oro/grid-bundle",
+    "name": "pintushi/filter-bundle",
     "type": "symfony-bundle",
-    "description": "BAP Grid Bundle",
-    "keywords": ["BAP", "Grid"],
+    "description": "Pintushi Filter Bundle",
+    "keywords": ["Pintushi", "Filter"],
     "license": "MIT",
     "require": {
         "php": "7.1.*",
         "symfony/symfony": "^3.4",
-        "oro/config": "dev-master",
-        "oro/ui-bundle": "dev-master",
-        "oro/requirejs-bundle": "dev-master",
-        "oro/security-bundle": "dev-master",
-        "bower-asset/backgrid": "0.3.7",
-        "bower-asset/backgrid-paginator": "0.3.8",
-        "bower-asset/backbone-pageable": "1.2.3"
+        "oro/config": "^1.0@dev",
+        "pintushi/grid-bundle": "^1.0@dev",
+        "pintushi/security-bundle": "^1.0@dev"
     },
     "autoload": {
-        "psr-0": { "Pintushi\\Bundle\\GridBundle": "" }
+        "psr-0": { "Pintushi\\Bundle\\FilterBundle": "" }
     },
-    "target-dir": "Pintushi/Bundle/GridBundle",
+    "target-dir": "Pintushi/Bundle/FilterBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
