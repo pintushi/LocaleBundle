@@ -162,7 +162,7 @@ class EnumFilterType extends AbstractMultiChoiceType
     {
         $choices = [];
         if (!empty($nullValue)) {
-            $choices[$this->translator->trans('oro.entity_extend.datagrid.enum.filter.empty')] = $nullValue;
+            $choices[$this->translator->trans('oro.entity_extend.grid.enum.filter.empty')] = $nullValue;
         }
 
         if (!empty($enumValueClassName)) {

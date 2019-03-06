@@ -1,4 +1,4 @@
 operations:
     DELETE:
-        exclude_datagrids:
+        exclude_grids:
             - entityconfig-grid

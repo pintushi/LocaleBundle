@@ -1,5 +1,5 @@
 {
-    "name": "oro/datagrid-bundle",
+    "name": "oro/grid-bundle",
     "type": "symfony-bundle",
     "description": "BAP Grid Bundle",
     "keywords": ["BAP", "Grid"],

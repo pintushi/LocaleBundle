@@ -4,7 +4,7 @@ namespace Pintushi\Bundle\FilterBundle\Datasource\Orm;
 
 use Doctrine\DBAL\Platforms\MySqlPlatform;
 use Doctrine\ORM\QueryBuilder;
-use Pintushi\Bundle\GridBundle\ORM\QueryBuilder\QueryBuilderTools;
+use Pintushi\Bundle\FilterBundle\ORM\QueryBuilder\QueryBuilderTools;
 use Pintushi\Bundle\FilterBundle\Datasource\FilterDatasourceAdapterInterface;
 use Pintushi\Bundle\FilterBundle\Filter\FilterUtility;
 

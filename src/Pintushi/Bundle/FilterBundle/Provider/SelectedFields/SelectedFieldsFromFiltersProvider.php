@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\FilterBundle\Provider\SelectedFields;
 
-use Pintushi\Bundle\GridBundle\Datagrid\Common\DatagridConfiguration;
+use Pintushi\Bundle\GridBundle\Grid\Common\GridConfiguration;
 use Pintushi\Bundle\GridBundle\Provider\SelectedFields\AbstractSelectedFieldsProvider;
 use Pintushi\Bundle\FilterBundle\Grid\Extension\Configuration as FilterConfiguration;
 
@@ -14,8 +14,8 @@ class SelectedFieldsFromFiltersProvider extends AbstractSelectedFieldsProvider
     /**
      * {@inheritdoc}
      */
-    protected function getConfiguration(DatagridConfiguration $datagridConfiguration): array
+    protected function getConfiguration(GridConfiguration $gridConfiguration): array
     {
-        return $datagridConfiguration->offsetGetByPath(FilterConfiguration::COLUMNS_PATH, []);
+        return $gridConfiguration->offsetGetByPath(FilterConfiguration::COLUMNS_PATH, []);
     }
 }

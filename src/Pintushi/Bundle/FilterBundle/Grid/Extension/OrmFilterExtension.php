@@ -2,7 +2,7 @@
 
 namespace Pintushi\Bundle\FilterBundle\Grid\Extension;
 
-use Pintushi\Bundle\GridBundle\Datagrid\Common\DatagridConfiguration;
+use Pintushi\Bundle\GridBundle\Grid\Common\GridConfiguration;
 use Pintushi\Bundle\GridBundle\Datasource\DatasourceInterface;
 use Pintushi\Bundle\GridBundle\Datasource\Orm\OrmDatasource;
 use Pintushi\Bundle\FilterBundle\Datasource\Orm\OrmFilterDatasourceAdapter;
@@ -16,7 +16,7 @@ class OrmFilterExtension extends AbstractFilterExtension
     /**
      * {@inheritDoc}
      */
-    public function isApplicable(DatagridConfiguration $config)
+    public function isApplicable(GridConfiguration $config)
     {
         return
             parent::isApplicable($config)
@@ -27,14 +27,11 @@ class OrmFilterExtension extends AbstractFilterExtension
     /**
      * {@inheritDoc}
      */
-    public function visitDatasource(DatagridConfiguration $config, DatasourceInterface $datasource)
+    public function visitDatasource(GridConfiguration $config, DatasourceInterface $datasource)
     {
         $filters = $this->getFiltersToApply($config);
         $filtersState = $this->filtersStateProvider->getStateFromParameters($config, $this->getParameters());
 
-        /** @var OrmDatasource $datasource */
-        $countQb = $datasource->getCountQb();
-        $countQbAdapter = $countQb ? new OrmFilterDatasourceAdapter($countQb) : null;
         $datasourceAdapter = new OrmFilterDatasourceAdapter($datasource->getQueryBuilder());
 
         foreach ($filters as $filter) {
@@ -61,11 +58,6 @@ class OrmFilterExtension extends AbstractFilterExtension
 
             // Applies filter to datasource.
             $filter->apply($datasourceAdapter, $data);
-
-            // Applies filter to count query of datasource, if any.
-            if ($countQbAdapter) {
-                $filter->apply($countQbAdapter, $data);
-            }
         }
     }
 }

@@ -1,6 +1,6 @@
 parameters:
     pintushi_filter.extension.orm_filter.class:      Pintushi\Bundle\FilterBundle\Grid\Extension\OrmFilterExtension
-    pintushi_filter.datagrid.column_options_guesser.class: Pintushi\Bundle\FilterBundle\Grid\DefaultColumnFilteringOptionsGuesser
+    pintushi_filter.grid.column_options_guesser.class: Pintushi\Bundle\FilterBundle\Grid\DefaultColumnFilteringOptionsGuesser
     pintushi_filter.provider.datevarsprovider.class: Pintushi\Bundle\FilterBundle\Provider\DateModifierProvider
     pintushi_filter.expression.date.compiler.class:  Pintushi\Bundle\FilterBundle\Expression\Date\Compiler
     pintushi_filter.expression.date.lexer.class:     Pintushi\Bundle\FilterBundle\Expression\Date\Lexer
@@ -18,8 +18,8 @@ services:
         tags:
             - { name: pintushi_grid.extension }
 
-    pintushi_filter.datagrid.column_options_guesser:
-        class: '%pintushi_filter.datagrid.column_options_guesser.class%'
+    pintushi_filter.grid.column_options_guesser:
+        class: '%pintushi_filter.grid.column_options_guesser.class%'
         tags:
             - { name: pintushi_grid.column_options_guesser }
 

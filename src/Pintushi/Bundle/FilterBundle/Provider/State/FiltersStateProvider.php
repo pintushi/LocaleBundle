@@ -2,57 +2,57 @@
 
 namespace Pintushi\Bundle\FilterBundle\Provider\State;
 
-use Pintushi\Bundle\GridBundle\Datagrid\Common\DatagridConfiguration;
-use Pintushi\Bundle\GridBundle\Datagrid\ParameterBag;
+use Pintushi\Bundle\GridBundle\Grid\Common\GridConfiguration;
+use Pintushi\Bundle\GridBundle\Grid\ParameterBag;
 use Pintushi\Bundle\GridBundle\Entity\Manager\GridViewManager;
 use Pintushi\Bundle\GridBundle\Provider\State\AbstractStateProvider;
-use Pintushi\Bundle\GridBundle\Tools\DatagridParametersHelper;
+use Pintushi\Bundle\GridBundle\Tools\GridParametersHelper;
 use Pintushi\Bundle\FilterBundle\Grid\Extension\AbstractFilterExtension;
 use Pintushi\Bundle\FilterBundle\Grid\Extension\Configuration as FilterConfiguration;
 use Pintushi\Bundle\SecurityBundle\Authentication\TokenAccessorInterface;
 
 /**
- * Provides request- and user-specific datagrid state for filters component.
- * Tries to fetch state from datagrid parameters, then fallbacks to state from current datagrid view, then from default
- * datagrid view, then to datagrid columns configuration.
+ * Provides request- and user-specific grid state for filters component.
+ * Tries to fetch state from grid parameters, then fallbacks to state from current grid view, then from default
+ * grid view, then to grid columns configuration.
  * State is respresented by an array with filters names as key and filter parameters array as value.
  */
 class FiltersStateProvider extends AbstractStateProvider
 {
-    /** @var DatagridParametersHelper */
-    private $datagridParametersHelper;
+    /** @var GridParametersHelper */
+    private $gridParametersHelper;
 
     /**
      * @param GridViewManager $gridViewManager
      * @param TokenAccessorInterface $tokenAccessor
-     * @param DatagridParametersHelper $datagridParametersHelper
+     * @param GridParametersHelper $gridParametersHelper
      */
     public function __construct(
         GridViewManager $gridViewManager,
         TokenAccessorInterface $tokenAccessor,
-        DatagridParametersHelper $datagridParametersHelper
+        GridParametersHelper $gridParametersHelper
     ) {
         parent::__construct($gridViewManager, $tokenAccessor);
-        $this->datagridParametersHelper = $datagridParametersHelper;
+        $this->gridParametersHelper = $gridParametersHelper;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getState(DatagridConfiguration $datagridConfiguration, ParameterBag $datagridParameters): array
+    public function getState(GridConfiguration $gridConfiguration, ParameterBag $gridParameters): array
     {
         $state = [];
-        $defaultState = $this->getDefaultFiltersState($datagridConfiguration);
+        $defaultState = $this->getDefaultFiltersState($gridConfiguration);
 
-        // Fetch state from datagrid parameters.
-        $stateFromParameters = $this->getFromParameters($datagridParameters);
+        // Fetch state from grid parameters.
+        $stateFromParameters = $this->getFromParameters($gridParameters);
         if ($stateFromParameters) {
             $state = array_replace($defaultState, $stateFromParameters);
         }
 
         // Try to fetch state from grid view.
         if (!$state) {
-            $gridView = $this->getActualGridView($datagridConfiguration, $datagridParameters);
+            $gridView = $this->getActualGridView($gridConfiguration, $gridParameters);
             if ($gridView) {
                 $state = $gridView->getFiltersData();
             }
@@ -63,33 +63,33 @@ class FiltersStateProvider extends AbstractStateProvider
             $state = $defaultState;
         }
 
-        return $this->sanitizeState($state, $this->getFiltersConfig($datagridConfiguration));
+        return $this->sanitizeState($state, $this->getFiltersConfig($gridConfiguration));
     }
 
     /**
      * {@inheritdoc}
      */
     public function getStateFromParameters(
-        DatagridConfiguration $datagridConfiguration,
-        ParameterBag $datagridParameters
+        GridConfiguration $gridConfiguration,
+        ParameterBag $gridParameters
     ): array {
-        $defaultState = $this->getDefaultFiltersState($datagridConfiguration);
+        $defaultState = $this->getDefaultFiltersState($gridConfiguration);
 
-        // Fetch state from datagrid parameters.
-        $stateFromParameters = $this->getFromParameters($datagridParameters);
+        // Fetch state from grid parameters.
+        $stateFromParameters = $this->getFromParameters($gridParameters);
         $state = array_replace($defaultState, $stateFromParameters);
 
-        return $this->sanitizeState($state, $this->getFiltersConfig($datagridConfiguration));
+        return $this->sanitizeState($state, $this->getFiltersConfig($gridConfiguration));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getDefaultState(DatagridConfiguration $datagridConfiguration): array
+    public function getDefaultState(GridConfiguration $gridConfiguration): array
     {
-        $state = $this->getDefaultFiltersState($datagridConfiguration);
+        $state = $this->getDefaultFiltersState($gridConfiguration);
 
-        return $this->sanitizeState($state, $this->getFiltersConfig($datagridConfiguration));
+        return $this->sanitizeState($state, $this->getFiltersConfig($gridConfiguration));
     }
 
     /**
@@ -100,7 +100,7 @@ class FiltersStateProvider extends AbstractStateProvider
      */
     private function sanitizeState(array $state, array $filtersConfig): array
     {
-        // Remove filters which are not in datagrid configuration.
+        // Remove filters which are not in grid configuration.
         $state = array_filter(
             $state,
             function (string $filterName) use ($filtersConfig) {
@@ -126,33 +126,33 @@ class FiltersStateProvider extends AbstractStateProvider
     /**
      * {@inheritdoc}
      */
-    private function getFromParameters(ParameterBag $datagridParameters): array
+    private function getFromParameters(ParameterBag $gridParameters): array
     {
-        $filtersState = (array) $this->datagridParametersHelper
-            ->getFromParameters($datagridParameters, AbstractFilterExtension::FILTER_ROOT_PARAM);
-        $minifiedFiltersState = (array) $this->datagridParametersHelper
-            ->getFromMinifiedParameters($datagridParameters, AbstractFilterExtension::MINIFIED_FILTER_PARAM);
+        $filtersState = (array) $this->gridParametersHelper
+            ->getFromParameters($gridParameters, AbstractFilterExtension::FILTER_ROOT_PARAM);
+        $minifiedFiltersState = (array) $this->gridParametersHelper
+            ->getFromMinifiedParameters($gridParameters, AbstractFilterExtension::MINIFIED_FILTER_PARAM);
 
         return array_replace_recursive($filtersState, $minifiedFiltersState);
     }
 
     /**
-     * @param DatagridConfiguration $datagridConfiguration
+     * @param GridConfiguration $gridConfiguration
      *
      * @return array
      */
-    private function getFiltersConfig(DatagridConfiguration $datagridConfiguration)
+    private function getFiltersConfig(GridConfiguration $gridConfiguration)
     {
-        return (array)$datagridConfiguration->offsetGetByPath(FilterConfiguration::COLUMNS_PATH, []);
+        return (array)$gridConfiguration->offsetGetByPath(FilterConfiguration::COLUMNS_PATH, []);
     }
 
     /**
-     * @param DatagridConfiguration $datagridConfiguration
+     * @param GridConfiguration $gridConfiguration
      *
      * @return array
      */
-    private function getDefaultFiltersState(DatagridConfiguration $datagridConfiguration): array
+    private function getDefaultFiltersState(GridConfiguration $gridConfiguration): array
     {
-        return $datagridConfiguration->offsetGetByPath(FilterConfiguration::DEFAULT_FILTERS_PATH, []);
+        return $gridConfiguration->offsetGetByPath(FilterConfiguration::DEFAULT_FILTERS_PATH, []);
     }
 }

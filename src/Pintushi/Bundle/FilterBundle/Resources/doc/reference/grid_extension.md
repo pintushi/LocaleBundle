@@ -5,7 +5,7 @@ Overview
 --------
 
 Filter bundle provides extension for data grid with ORM and Search datasources.
-Filters could be added to datagrid in the `datagrids.yml` file for specified datagrid under `filters` node.
+Filters could be added to grid in the `grids.yml` file for specified grid under `filters` node.
 Definition of any filter has required option `data_name` that should be reference to column in query and type - filter type.
 For example:
 
@@ -30,7 +30,7 @@ For example:
                     visible: true|false #If set to "false" - filter will not be displayed anywhere in UI. However, one can still set filter's value in backend or via url in frontend
                     force_like: true|false #Different search engines uses different methods for text search. When `force_like` is set to true, text-based filters will use simple `LIKE %%` OR `NOT LIKE %%`statement which depends on a chosen operator
                     min_length: integer #In case of text-based filters this option introduce possibility to ignore filters with less characters then specified. Validation message will also appear
-                    divisor: number #In case of number-based filters this option will filter values rendered with datagrid divisor option.
+                    divisor: number #In case of number-based filters this option will filter values rendered with grid divisor option.
                     case_insensitive: true|false #When set to 'true' text search filter will be case insensitive [Postgres only].
                     value_conversion: string #Callback for text search filter used for converting value passed to a query.
 

@@ -81,7 +81,7 @@ There are next filters form types:
 <tr>
     <td><a href="#oro_type_selectrow">SelectRowFilterType</a></td>
     <td>oro_type_selectrow_filter</td>
-    <td>This form type is used by datagrid extension only</td>
+    <td>This form type is used by grid extension only</td>
 </tr>
 <tr>
     <td><a href="#oro_type_date_grouping_filter-form-type">DateGroupingFilterType</a></td>
@@ -490,7 +490,7 @@ _Pintushi\Bundle\FilterBundle\Form\Type\DateTimeRangeType_
 
 ### oro\_type\_selectrow  Form Type
 
-Provides filtering by selected/not selected rows in datagrid
+Provides filtering by selected/not selected rows in grid
 
 **Default Options**
 

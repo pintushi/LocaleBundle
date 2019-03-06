@@ -2,13 +2,13 @@
 
 namespace Pintushi\Bundle\FilterBundle\Grid\Extension;
 
-use Pintushi\Bundle\GridBundle\Datagrid\Common\DatagridConfiguration;
-use Pintushi\Bundle\GridBundle\Datagrid\Common\MetadataObject;
+use Pintushi\Bundle\GridBundle\Grid\Common\GridConfiguration;
+use Pintushi\Bundle\GridBundle\Grid\Common\MetadataObject;
 use Pintushi\Bundle\GridBundle\Extension\AbstractExtension;
-use Pintushi\Bundle\GridBundle\Extension\Formatter\Configuration as FormatterConfiguration;
-use Pintushi\Bundle\GridBundle\Extension\Formatter\Property\PropertyInterface;
+use Pintushi\Bundle\GridBundle\Extension\Columns\Configuration as ColumnsConfiguration;
+use Pintushi\Bundle\GridBundle\Extension\Columns\ColumnInterface;
 use Pintushi\Bundle\GridBundle\Provider\ConfigurationProvider;
-use Pintushi\Bundle\GridBundle\Provider\State\DatagridStateProviderInterface;
+use Pintushi\Bundle\GridBundle\Provider\State\GridStateProviderInterface;
 use Pintushi\Bundle\FilterBundle\Filter\FilterInterface;
 use Pintushi\Bundle\FilterBundle\Filter\FilterUtility;
 use Pintushi\Component\PhpUtils\ArrayUtil;
@@ -16,9 +16,9 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /**
- * Updates datagrid metadata object with:
- * - initial filters state - as per datagrid sorters configuration;
- * - filters state - as per current state based on columns configuration, grid view settings and datagrid parameters;
+ * Updates grid metadata object with:
+ * - initial filters state - as per grid sorters configuration;
+ * - filters state - as per current state based on columns configuration, grid view settings and grid parameters;
  * - updates metadata with filters config.
  */
 abstract class AbstractFilterExtension extends AbstractExtension
@@ -35,17 +35,17 @@ abstract class AbstractFilterExtension extends AbstractExtension
     /** @var ConfigurationProvider */
     protected $configurationProvider;
 
-    /** @var DatagridStateProviderInterface */
+    /** @var GridStateProviderInterface */
     protected $filtersStateProvider;
 
     /**
      * @param ConfigurationProvider $configurationProvider
-     * @param DatagridStateProviderInterface $filtersStateProvider
+     * @param GridStateProviderInterface $filtersStateProvider
      * @param TranslatorInterface $translator
      */
     public function __construct(
         ConfigurationProvider $configurationProvider,
-        DatagridStateProviderInterface $filtersStateProvider,
+        GridStateProviderInterface $filtersStateProvider,
         TranslatorInterface $translator
     ) {
         $this->configurationProvider = $configurationProvider;
@@ -71,7 +71,7 @@ abstract class AbstractFilterExtension extends AbstractExtension
     /**
      * {@inheritDoc}
      */
-    public function processConfigs(DatagridConfiguration $config)
+    public function processConfigs(GridConfiguration $config)
     {
         $filters = $config->offsetGetByPath(Configuration::FILTERS_PATH);
 
@@ -88,7 +88,7 @@ abstract class AbstractFilterExtension extends AbstractExtension
     /**
      * {@inheritDoc}
      */
-    public function visitMetadata(DatagridConfiguration $config, MetadataObject $metadata)
+    public function visitMetadata(GridConfiguration $config, MetadataObject $metadata)
     {
         $filters = $this->getFiltersToApply($config);
 
@@ -99,17 +99,17 @@ abstract class AbstractFilterExtension extends AbstractExtension
     /**
      * Prepare filters array
      *
-     * @param DatagridConfiguration $config
+     * @param GridConfiguration $config
      *
      * @return FilterInterface[]
      */
-    protected function getFiltersToApply(DatagridConfiguration $config): array
+    protected function getFiltersToApply(GridConfiguration $config): array
     {
         $filters = [];
         $filtersConfig = $config->offsetGetByPath(Configuration::COLUMNS_PATH, []);
 
         foreach ($filtersConfig as $filterName => $filterConfig) {
-            if (!empty($filterConfig[PropertyInterface::DISABLED_KEY])) {
+            if (!empty($filterConfig[ColumnInterface::DISABLED_KEY])) {
                 // Skips disabled filter.
                 continue;
             }
@@ -117,7 +117,7 @@ abstract class AbstractFilterExtension extends AbstractExtension
             // If label is not set, tries to use corresponding column label.
             if (!isset($filterConfig['label'])) {
                 $filterConfig['label'] = $config->offsetGetByPath(
-                    sprintf('[%s][%s][label]', FormatterConfiguration::COLUMNS_KEY, $filterName)
+                    sprintf('[%s][%s][label]', ColumnsConfiguration::COLUMNS_KEY, $filterName)
                 );
             }
             $filters[$filterName] = $this->getFilterObject($filterName, $filterConfig);
@@ -141,7 +141,7 @@ abstract class AbstractFilterExtension extends AbstractExtension
         $filter = $this->filters[$filterType];
         $filter->init($filterName, $filterConfig);
 
-        // Ensures filter is "somewhat-stateless" across datagrids.
+        // Ensures filter is "somewhat-stateless" across grids.
         // "Somewhat stateless" means that some filters cannot be fully stateless, because there are filters that
         // are used directly as a service, e.g. pintushi_filter.date_grouping_filter. That is why we cannot clone filter
         // before calling "init".
@@ -150,10 +150,10 @@ abstract class AbstractFilterExtension extends AbstractExtension
 
     /**
      * @param FilterInterface[] $filters
-     * @param DatagridConfiguration $config
+     * @param GridConfiguration $config
      * @param MetadataObject $metadata
      */
-    protected function updateState(array $filters, DatagridConfiguration $config, MetadataObject $metadata): void
+    protected function updateState(array $filters, GridConfiguration $config, MetadataObject $metadata): void
     {
         $filtersState = $this->filtersStateProvider->getState($config, $this->getParameters());
         $initialFiltersState = $this->filtersStateProvider->getDefaultState($config);
@@ -219,12 +219,12 @@ abstract class AbstractFilterExtension extends AbstractExtension
 
     /**
      * @param FilterInterface[] $filters
-     * @param DatagridConfiguration $config
+     * @param GridConfiguration $config
      * @param MetadataObject $metadata
      */
     protected function updateMetadata(
         array $filters,
-        DatagridConfiguration $config,
+        GridConfiguration $config,
         MetadataObject $metadata
     ): void {
         $rawConfig = $this->configurationProvider->isApplicable($config->getName())

@@ -2,8 +2,8 @@
 
 namespace Pintushi\Bundle\FilterBundle\Grid;
 
-use Pintushi\Bundle\GridBundle\Datagrid\AbstractColumnOptionsGuesser;
-use Pintushi\Bundle\GridBundle\Datagrid\Guess\ColumnGuess;
+use Pintushi\Bundle\GridBundle\Grid\AbstractColumnOptionsGuesser;
+use Pintushi\Bundle\GridBundle\Grid\Guess\ColumnGuess;
 use Pintushi\Bundle\FilterBundle\Form\Type\Filter\NumberFilterType;
 
 class DefaultColumnFilteringOptionsGuesser extends AbstractColumnOptionsGuesser
