@@ -415,7 +415,7 @@ abstract class AbstractFilter implements FilterInterface
             return null;
         }
 
-        list($alias) = explode('.', $this->getOr(FilterUtility::DATA_NAME_KEY));
+        list($alias) = explode('.', $this->getOr(FilterUtility::DATA_PATH_KEY));
 
         return QueryBuilderUtil::findJoinByAlias($ds->getQueryBuilder(), $alias);
     }
@@ -528,7 +528,7 @@ abstract class AbstractFilter implements FilterInterface
     protected function getDataFieldName()
     {
         if (!$this->dataFieldName) {
-            $this->dataFieldName = $this->get(FilterUtility::DATA_NAME_KEY);
+            $this->dataFieldName = $this->get(FilterUtility::DATA_PATH_KEY);
         }
 
         return $this->dataFieldName;

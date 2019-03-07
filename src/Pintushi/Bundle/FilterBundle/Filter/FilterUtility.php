@@ -13,7 +13,7 @@ class FilterUtility
     const VISIBLE_KEY       = 'visible';
     const TYPE_KEY          = 'type';
     const FRONTEND_TYPE_KEY = 'ftype';
-    const DATA_NAME_KEY     = 'data_name';
+    const DATA_PATH_KEY     = 'path';
     const TRANSLATABLE_KEY  = 'translatable';
     const MIN_LENGTH_KEY    = 'min_length';
     const MAX_LENGTH_KEY    = 'max_length';
@@ -35,6 +35,6 @@ class FilterUtility
 
     public function getExcludeParams()
     {
-        return [self::DATA_NAME_KEY, self::FORM_OPTIONS_KEY];
+        return [self::DATA_PATH_KEY, self::FORM_OPTIONS_KEY];
     }
 }

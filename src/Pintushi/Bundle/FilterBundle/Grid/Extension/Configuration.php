@@ -44,7 +44,7 @@ class Configuration implements ConfigurationInterface
                                     ->thenInvalid('Invalid filter type "%s"')
                                 ->end()
                             ->end()
-                            ->scalarNode(FilterUtility::DATA_NAME_KEY)->isRequired()->end()
+                            ->scalarNode(FilterUtility::DATA_PATH_KEY)->isRequired()->end()
                             ->enumNode(FilterUtility::CONDITION_KEY)
                                 ->values(array(FilterUtility::CONDITION_AND, FilterUtility::CONDITION_OR))
                             ->end()

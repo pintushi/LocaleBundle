@@ -50,7 +50,7 @@ class ManyToManyFilter extends AbstractFilter
      */
     protected function getJoinIdentifier(OrmFilterDatasourceAdapter $ds)
     {
-        list($joinAlias, $class) = explode('.', $this->getOr(FilterUtility::DATA_NAME_KEY));
+        list($joinAlias, $class) = explode('.', $this->getOr(FilterUtility::DATA_PATH_KEY));
         $em = $ds->getQueryBuilder()->getEntityManager();
         $metadata = $em->getClassMetadata($class);
         $fieldNames = $metadata->getIdentifierFieldNames();

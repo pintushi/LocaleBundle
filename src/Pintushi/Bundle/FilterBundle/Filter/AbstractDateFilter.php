@@ -88,7 +88,7 @@ abstract class AbstractDateFilter extends AbstractFilter
     {
         $this->validateFieldName();
 
-        return $this->dateFilterUtility->parseData($this->get(FilterUtility::DATA_NAME_KEY), $data, $this->name);
+        return $this->dateFilterUtility->parseData($this->get(FilterUtility::DATA_PATH_KEY), $data, $this->name);
     }
 
     /**
@@ -330,6 +330,6 @@ abstract class AbstractDateFilter extends AbstractFilter
      */
     protected function validateFieldName()
     {
-        QueryBuilderUtil::checkField($this->get(FilterUtility::DATA_NAME_KEY));
+        QueryBuilderUtil::checkField($this->get(FilterUtility::DATA_PATH_KEY));
     }
 }
