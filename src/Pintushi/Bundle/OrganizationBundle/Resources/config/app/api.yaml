@@ -1,3 +1,0 @@
-imports:
-    - { resource: 'api/BusinessUnit.yaml' }
-    - { resource: 'api/Organization.yaml' }

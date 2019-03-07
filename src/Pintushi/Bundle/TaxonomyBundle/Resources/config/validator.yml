@@ -1,8 +1,0 @@
-services:
-    pintushi_taxonomy.validator.parent_taxon_validator:
-        class: 'Pintushi\Bundle\TaxonomyBundle\Validator\Constraints\ParentTaxonValidator'
-        arguments:
-            - '@Pintushi\Bundle\TaxonomyBundle\Repository\TaxonRepository'
-            - '@security.authorization_checker'
-        tags:
-              - { name: validator.constraint_validator, alias: parent_taxonomy_validator }

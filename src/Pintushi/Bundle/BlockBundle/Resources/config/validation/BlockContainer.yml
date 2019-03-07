@@ -1,9 +1,0 @@
-Pintushi\Bundle\BlockBundle\Entity\BlockContainer:
-    properties:
-        title:
-            - NotBlank: { groups: ['pintushi'] }
-            - Length: { groups: ['pintushi'] , max: 40}
-        name:
-            - NotBlank: { groups: ['pintushi'] }
-        blocks:
-            - Valid: { groups: ['pintushi']}

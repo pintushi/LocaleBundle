@@ -1,9 +1,0 @@
-Pintushi\Bundle\ShippingBundle\Entity\ShippingMethod:
-    properties:
-        name:
-            - NotBlank: { groups: ["pintushi"] }
-        position:
-            - Type: { groups: ["pintushi"], type: "integer"}
-        amount:
-            - NotBlank: { groups: ["pintushi"] }
-            - Type: { groups: ["pintushi"], type: "integer"}

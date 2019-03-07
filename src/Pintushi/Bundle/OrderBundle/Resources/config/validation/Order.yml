@@ -1,4 +1,0 @@
-Pintushi\Bundle\OrderBundle\Entity\Order:
-    properties:
-        items:
-            - Valid: { groups: ["pintushi"]}

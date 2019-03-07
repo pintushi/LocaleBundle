@@ -1,7 +1,0 @@
-imports:
-    - { resource: 'state_machine/order.yml' }
-    - { resource: 'state_machine/order_payment.yml' }
-    - { resource: 'state_machine/order_review.yml' }
-    - { resource: 'state_machine/order_shipping.yml' }
-    - { resource: 'state_machine/payment.yml' }
-    - { resource: 'state_machine/shipment.yml' }

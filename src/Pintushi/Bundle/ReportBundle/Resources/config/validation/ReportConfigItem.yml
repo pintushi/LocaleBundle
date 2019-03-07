@@ -1,7 +1,0 @@
-Pintushi\Bundle\ReportBundle\Entity\ReportConfigItem:
-    properties:
-        name:
-            - NotBlank: {groups: ["pintushi"]}
-            - Length: {groups: ["pintushi"], max: 40}
-        group:
-            - NotBlank: { groups: ["pintushi"]}

@@ -1,4 +1,0 @@
-pintushi:
-    product:
-        name:
-            not_blank: "请填写商品名称"

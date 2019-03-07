@@ -1,5 +1,0 @@
-Pintushi\Bundle\CustomerBundle\Entity\CustomerGroup:
-    properties:
-        name:
-            - NotBlank: { groups: ['pintushi'] }
-            - Length: { groups: ['pintushi'] , max: 255, min: 2}

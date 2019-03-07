@@ -1,9 +1,0 @@
-car_brand:
-    brand_name:
-        blank: 请输入车品牌名称
-        long: 车品牌名称不能超过40个字符
-
-car_model:
-    model_name:
-        blank: 请输入车型名称
-        long: 车型名称不能超过40个字符

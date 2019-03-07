@@ -1,4 +1,0 @@
-pintushi:
-    order_item:
-        quantity:
-            min: 订单商品的数量不能低于1。

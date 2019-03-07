@@ -1,5 +1,0 @@
-Pintushi\Bundle\AutoBundle\Entity\CarBrand:
-    properties:
-         name:
-            - NotBlank: { groups: ['pintushi'] }
-            - Length: { groups: ['pintushi'] , max: 40}

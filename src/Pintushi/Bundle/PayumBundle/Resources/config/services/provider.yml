@@ -1,4 +1,0 @@
-services:
-    pintushi.payment_description_provider:
-        class: Pintushi\Bundle\PayumBundle\Provider\PaymentDescriptionProvider
-        arguments: ['@translator']

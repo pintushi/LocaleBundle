@@ -1,8 +1,0 @@
-Pintushi\Bundle\PaymentBundle\Entity\PyamentMethod:
-    properties:
-        name:
-            - NotBlank: { groups: ['pintushi'] }
-        description:
-            - NotBlank: { groups: ['pintushi'] }
-        position:
-            - NotBlank: { groups: ['pintushi'] }

@@ -1,8 +1,0 @@
-pintushi:
-    car_brand:
-            enabled:
-                label: 是否启用?
-            name:
-                label: 车牌名称
-            image:
-                lable: Logo

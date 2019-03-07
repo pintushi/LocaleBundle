@@ -1,9 +1,0 @@
-services:
-    pintushi_entity_config.metadata.annotation_metadata_factory:
-        class:                                              'Metadata\MetadataFactory'
-        arguments:                                          ['@pintushi_entity_config.metadata.annotation_driver']
-
-    pintushi_entity_config.metadata.annotation_driver:
-        class:                                              'Pintushi\Bundle\EntityConfigBundle\Metadata\Driver\AnnotationDriver'
-        arguments:                                          ['@annotation_reader']
-        public:                                             false

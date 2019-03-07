@@ -1,6 +1,0 @@
-services:
-    Pintushi\Bundle\CoreBundle\Faker\Provider\EntityReferenceProvider:
-        arguments:
-            - '@doctrine.orm.entity_manager'
-        tags:
-            - { name: 'nelmio_alice.faker.provider' }

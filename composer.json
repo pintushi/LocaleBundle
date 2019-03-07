@@ -1,92 +1,23 @@
 {
-    "name": "pintushi/pintushi",
-    "type": "project",
-    "license": "proprietary",
-    "require": {
-        "php": "^7.1.3",
-        "ext-ctype": "*",
-        "ext-iconv": "*",
-        "doctrine/doctrine-migrations-bundle": "^1.3",
-        "endroid/qr-code-bundle": "^3.2",
-        "fzaninotto/faker": "^1.7",
-        "gedmo/doctrine-extensions": "^2.4",
-        "guzzlehttp/guzzle": "^6.3",
-        "knplabs/knp-menu-bundle": "^2.2",
-        "league/omnipay": "^3.0",
-        "lexik/jwt-authentication-bundle": "^2.5",
-        "lokielse/omnipay-alipay": "^3.0",
-        "lokielse/omnipay-wechatpay": "^3.0",
-        "nelmio/cors-bundle": "^1.5",
-        "oneup/flysystem-bundle": "^3.0",
-        "overtrue/easy-sms": "^1.1",
-        "overtrue/pinyin": "^3.0",
-        "payum/offline": "^1.5",
-        "payum/omnipay-v3-bridge": "^1.0",
-        "payum/payum-bundle": "^2.3",
-        "sensio/framework-extra-bundle": "^5.2",
-        "stof/doctrine-extensions-bundle": "^1.3",
-        "sylius/registry": "^1.2",
-        "symfony-cmf/routing-bundle": "^2.1",
-        "symfony/acl-bundle": "^1.0",
-        "symfony/asset": "^4.1",
-        "symfony/console": "^4.1",
-        "symfony/dotenv": "^4.0",
-        "symfony/flex": "^1.0",
-        "symfony/framework-bundle": "^4.1",
-        "symfony/monolog-bundle": "^3.3",
-        "symfony/twig-bundle": "^4.1",
-        "symfony/yaml": "^4.1",
-        "vich/uploader-bundle": "^1.8",
-        "videni/easy-wechat-bundle": "^1.0@dev",
-        "winzou/state-machine-bundle": "^0.3.1",
-        "zendframework/zend-stdlib": "^3.2",
-        "willdurand/hateoas-bundle": "^1.4",
-        "oro/doctrine-utils": "^1.0@dev",
-        "videni/file-bundle": "^1.0@dev",
-        "videni/simple-rest-bundle": "^1.0@dev",
-        "webmozart/assert": "^1.3",
-        "oro/config": "^1.0@dev",
-        "oro/doctrine-utils": "^1.0@dev",
-        "rollerworks/password-strength-bundle": "^2.0"
-    },
-    "repositories": [
+    "name": "pintushi/locale-bundle",
+    "type": "symfony-bundle",
+    "description": "Pintushi Locale Bundle",
+    "keywords": ["Pintushi", "Grid"],
+    "authors": [
         {
-            "url": "https://github.com/videni/Config.git",
-            "type": "vcs"
-        },
-        {
-            "url": "https://github.com/videni/OroDoctrineUtils.git",
-            "type": "vcs"
-        },
-        {
-            "url": "https://github.com/videni/OroDepedencyInjection.git",
-            "type": "vcs"
-        },
-        {
-            "url": "https://github.com/videni/VideniFileBundle.git",
-            "type": "vcs"
-        },
-        {
-            "url": "https://github.com/videni/SimpleRestBundle.git",
-            "type": "vcs"
+            "name": "Vidy Videni",
+            "homepage": "https://github.com/videni"
         }
     ],
-    "replace": {
-        "pintushi/security-bundle": "self.version",
-        "pintushi/organization-bundle": "self.version",
-        "pintushi/dependency-injection": "self.version",
-        "pintushi/php-utils": "self.version",
-        "pintushi/user-bundle": "self.version",
-        "pintushi/entity-config-bundle": "self.version",
-        "pintushi/form": "self.version",
-        "pintushi/log": "self.version"
+    "license": "MIT",
+    "require": {
+        "php": "7.1.*",
+        "symfony/symfony": "^3.4"
     },
     "autoload": {
-        "psr-4": {
-            "Pintushi\\Bundle\\": "src/Pintushi/Bundle/",
-            "Pintushi\\Component\\": "src/Pintushi/Component/"
-        }
+        "psr-0": { "Pintushi\\Bundle\\LocaleBundle": "" }
     },
+    "target-dir": "Pintushi/Bundle/LocaleBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"

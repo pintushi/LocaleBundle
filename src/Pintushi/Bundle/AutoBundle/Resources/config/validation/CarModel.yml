@@ -1,7 +1,0 @@
-Pintushi\Bundle\AutoBundle\Entity\CarModel:
-    properties:
-        name:
-            - NotBlank: { groups: ['pintushi'] }
-            - Length: { groups: ['pintushi'] , max: 40}
-        carSeries:
-            - NotNull: { groups: ['pintushi'] }

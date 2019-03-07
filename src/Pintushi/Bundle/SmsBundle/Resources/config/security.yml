@@ -1,6 +1,0 @@
-services:
-    pintushi_sms.security.authentication.provider:
-        class: Pintushi\Bundle\SmsBundle\Security\Core\Authentication\Provider\SmsAuthProvider
-
-    pintushi_sms.security.authentication.listener:
-        class: Pintushi\Bundle\SmsBundle\Security\Firewall\SmsAuthListener

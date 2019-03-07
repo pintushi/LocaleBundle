@@ -1,5 +1,0 @@
-Pintushi\Bundle\InventoryBundle\Entity\InventoryUnit:
-    attributes:
-        id:
-            groups: ['read']
-
