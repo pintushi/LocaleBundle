@@ -15,9 +15,8 @@
         "symfony/framework-bundle": "^4.0"
     },
     "autoload": {
-        "psr-0": { "Pintushi\\Bundle\\LocaleBundle": "" }
+        "psr-4": { "Pintushi\\Bundle\\LocaleBundle\\": "" }
     },
-    "target-dir": "Pintushi/Bundle/LocaleBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
